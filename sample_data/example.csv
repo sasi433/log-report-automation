@@ -1,0 +1,6 @@
+timestamp,service,level,message,response_ms
+2025-12-30 10:01:00,auth,INFO,Login ok,120
+2025-12-30 10:02:00,auth,ERROR,Token expired,0
+2025-12-30 10:03:00,api,INFO,GET /health,35
+2025-12-30 10:04:00,api,ERROR,500 internal server error,0
+2025-12-30 10:05:00,db,INFO,Query ok,220
