@@ -3,6 +3,10 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import pandas as pd
+
+REQUIRED_COLUMNS = ["timestamp", "service", "level", "message", "response_ms"]
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -21,6 +25,50 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def load_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(f"Input file not found: {path}")
+
+    df = pd.read_csv(path)
+
+    missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
+    if missing:
+        raise ValueError(
+            "CSV schema invalid. Missing columns: "
+            + ", ".join(missing)
+            + f"\nExpected columns: {', '.join(REQUIRED_COLUMNS)}"
+        )
+
+    # Basic cleanup / type handling
+    df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+    df["response_ms"] = pd.to_numeric(df["response_ms"], errors="coerce")
+
+    return df
+
+
+def print_stats(df: pd.DataFrame) -> None:
+    print("\n--- Basic stats ---")
+    print(f"Total rows: {len(df)}")
+
+    # Count by level (INFO/ERROR)
+    print("\nCount by level:")
+    print(df["level"].value_counts(dropna=False).to_string())
+
+    # Count by service
+    print("\nCount by service:")
+    print(df["service"].value_counts(dropna=False).to_string())
+
+    # Optional: how many invalid timestamps / response_ms
+    bad_ts = int(df["timestamp"].isna().sum())
+    bad_ms = int(df["response_ms"].isna().sum())
+    if bad_ts or bad_ms:
+        print("\nData quality warnings:")
+        if bad_ts:
+            print(f"- Invalid timestamps: {bad_ts}")
+        if bad_ms:
+            print(f"- Invalid response_ms values: {bad_ms}")
+
+
 def main() -> int:
     args = parse_args()
     input_path = Path(args.input)
@@ -29,7 +77,15 @@ def main() -> int:
     print("✅ Log Report Automation")
     print(f"Input : {input_path.resolve()}")
     print(f"Output: {output_path.resolve()}")
-    print("Next step: implement CSV parsing + Excel report generation.")
+
+    try:
+        df = load_csv(input_path)
+    except Exception as exc:
+        print(f"\n❌ Error: {exc}")
+        return 1
+
+    print_stats(df)
+    print("\nNext step: implement Excel report generation.")
     return 0
 
 
