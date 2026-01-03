@@ -85,8 +85,37 @@ def main() -> int:
         return 1
 
     print_stats(df)
-    print("\nNext step: implement Excel report generation.")
+    try:
+        write_excel_report(df, output_path)
+    except Exception as exc:
+        print(f"\n❌ Failed to write Excel report: {exc}")
+        return 1
+
+    print(f"\n✅ Excel report generated: {output_path.resolve()}")
     return 0
+
+
+def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
+    # Make sure parent folder exists (important for reports/ later too)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    total_rows = len(df)
+    error_count = int((df["level"] == "ERROR").sum()) if "level" in df.columns else 0
+
+    per_level = df["level"].value_counts(dropna=False).rename_axis("level").reset_index(name="count")
+    per_service = df["service"].value_counts(dropna=False).rename_axis("service").reset_index(name="count")
+
+    summary_rows = [
+        {"metric": "total_rows", "value": total_rows},
+        {"metric": "error_count", "value": error_count},
+    ]
+    summary_df = pd.DataFrame(summary_rows)
+
+    with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
+        df.to_excel(writer, sheet_name="logs", index=False)
+        summary_df.to_excel(writer, sheet_name="summary", index=False, startrow=0)
+        per_level.to_excel(writer, sheet_name="summary", index=False, startrow=5)
+        per_service.to_excel(writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3)
 
 
 if __name__ == "__main__":
