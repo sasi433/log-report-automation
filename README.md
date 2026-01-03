@@ -12,8 +12,3 @@ A small Python tool that reads log data from a CSV file and generates an Excel r
 
 ```bash
 python -m pip install -r requirements.txt
-
-Run with the sample CSV:
-
-```bash
-python src/main.py --input sample_data/example.csv --output report.xlsx
