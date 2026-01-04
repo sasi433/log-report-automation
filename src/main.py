@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from openpyxl.utils import get_column_letter
+
 import pandas as pd
 
 REQUIRED_COLUMNS = ["timestamp", "service", "level", "message", "response_ms"]
@@ -69,6 +71,17 @@ def print_stats(df: pd.DataFrame) -> None:
             print(f"- Invalid response_ms values: {bad_ms}")
 
 
+def format_worksheet_columns(ws) -> None:
+    # Auto-size columns based on max length (simple + good enough)
+    for col_idx, col_cells in enumerate(ws.columns, start=1):
+        max_len = 0
+        for cell in col_cells:
+            if cell.value is None:
+                continue
+            max_len = max(max_len, len(str(cell.value)))
+        ws.column_dimensions[get_column_letter(col_idx)].width = min(max_len + 2, 40)
+
+
 def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
     # Make sure parent folder exists (important for reports/ later too)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -97,27 +110,22 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
     )
 
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
-        # Sheet 1: raw logs
         df.to_excel(writer, sheet_name="logs", index=False)
+        summary_df.to_excel(writer, sheet_name="summary", index=False, startrow=0)
+        per_level.to_excel(writer, sheet_name="summary", index=False, startrow=5)
+        per_service.to_excel(writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3)
 
-        # Sheet 2: summary (laid out in sections)
-        sheet = "summary"
+        ws_logs = writer.sheets["logs"]
+        ws_summary = writer.sheets["summary"]
 
-        # Section 1: overall summary
-        summary_df.to_excel(writer, sheet_name=sheet, index=False, startrow=0)
-        ws = writer.sheets[sheet]
-        ws["A1"] = "metric"
-        ws["B1"] = "value"
+        # Force timestamp format + width
+        ws_logs.column_dimensions["A"].width = 22
+        for cell in ws_logs["A"][1:]:  # skip header cell
+            cell.number_format = "yyyy-mm-dd hh:mm:ss"
 
-        # Section 2: per level counts
-        start_row = len(summary_df) + 3
-        ws[f"A{start_row}"] = "Counts by level"
-        per_level.to_excel(writer, sheet_name=sheet, index=False, startrow=start_row)
-
-        # Section 3: per service counts
-        start_row = start_row + len(per_level) + 3
-        ws[f"A{start_row}"] = "Counts by service"
-        per_service.to_excel(writer, sheet_name=sheet, index=False, startrow=start_row)
+        # Optional: auto-size all columns nicely
+        format_worksheet_columns(ws_logs)
+        format_worksheet_columns(ws_summary)
 
 
 def main() -> int:
