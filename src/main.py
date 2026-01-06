@@ -44,6 +44,8 @@ def load_csv(path: Path) -> pd.DataFrame:
     # Basic cleanup / type handling
     df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
     df["response_ms"] = pd.to_numeric(df["response_ms"], errors="coerce")
+    df = df.sort_values("timestamp", kind="mergesort").reset_index(drop=True)
+    df["date"] = df["timestamp"].dt.date
 
     return df
 
@@ -109,8 +111,13 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
         ]
     )
 
+    df_export = df.copy()
+    df_export["date"] = df_export["timestamp"].dt.date
+    df_export["time"] = df_export["timestamp"].dt.strftime("%H:%M:%S")
+    df_export = df_export[["date", "time", "service", "level", "message", "response_ms"]]
+    
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
-        df.to_excel(writer, sheet_name="logs", index=False)
+        df_export.to_excel(writer, sheet_name="logs", index=False)
         summary_df.to_excel(writer, sheet_name="summary", index=False, startrow=0)
         per_level.to_excel(writer, sheet_name="summary", index=False, startrow=5)
         per_service.to_excel(writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3)
