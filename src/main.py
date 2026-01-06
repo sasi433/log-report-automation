@@ -25,7 +25,29 @@ def parse_args() -> argparse.Namespace:
         default="reports/report.xlsx",
         help="Path to output Excel report (default: reports/report.xlsx)",
     )
+    parser.add_argument(
+        "--service",
+        default=None,
+        help="Filter by service name (e.g., api, auth, db)",
+    )
+    parser.add_argument(
+        "--level",
+        default=None,
+        help="Filter by level (e.g., INFO, ERROR)",
+    )
     return parser.parse_args()
+
+
+def apply_filters(df: pd.DataFrame, service: str | None, level: str | None) -> pd.DataFrame:
+    filtered = df
+
+    if service:
+        filtered = filtered[filtered["service"].astype(str) == service]
+
+    if level:
+        filtered = filtered[filtered["level"].astype(str).str.upper() == level.upper()]
+
+    return filtered.reset_index(drop=True)
 
 
 def load_csv(path: Path) -> pd.DataFrame:
@@ -160,6 +182,18 @@ def main() -> int:
 
     try:
         df = load_csv(input_path)
+        df = apply_filters(df, args.service, args.level)
+
+        if args.service or args.level:
+            print("\n--- Active filters ---")
+            if args.service:
+                print(f"service = {args.service}")
+            if args.level:
+                print(f"level   = {args.level.upper()}")
+
+        if df.empty:
+            print("\n⚠️ No rows match the given filters.")
+            return 0
     except Exception as exc:
         print(f"\n❌ Error: {exc}")
         return 1
