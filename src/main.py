@@ -9,6 +9,10 @@ from openpyxl.styles import Alignment
 import pandas as pd
 
 REQUIRED_COLUMNS = ["timestamp", "service", "level", "message", "response_ms"]
+EXIT_OK = 0
+EXIT_ERROR = 1
+EXIT_INPUT_MISSING = 2
+EXIT_OUTPUT_ERROR = 3
 
 
 def parse_args() -> argparse.Namespace:
@@ -180,33 +184,37 @@ def main() -> int:
     print(f"Input : {input_path.resolve()}")
     print(f"Output: {output_path.resolve()}")
 
+    if args.service or args.level:
+        print("\n--- Active filters ---")
+        if args.service:
+            print(f"service = {args.service}")
+        if args.level:
+            print(f"level   = {args.level.upper()}")
+
     try:
         df = load_csv(input_path)
         df = apply_filters(df, args.service, args.level)
-
-        if args.service or args.level:
-            print("\n--- Active filters ---")
-            if args.service:
-                print(f"service = {args.service}")
-            if args.level:
-                print(f"level   = {args.level.upper()}")
-
-        if df.empty:
-            print("\n⚠️ No rows match the given filters.")
-            return 0
+    except FileNotFoundError as exc:
+        print(f"\n❌ {exc}")
+        return EXIT_INPUT_MISSING
     except Exception as exc:
         print(f"\n❌ Error: {exc}")
-        return 1
+        return EXIT_ERROR
+
+    if df.empty:
+        print("\n⚠️ No rows match the given filters. No report generated.")
+        return EXIT_OK
 
     print_stats(df)
+
     try:
         write_excel_report(df, output_path)
     except Exception as exc:
         print(f"\n❌ Failed to write Excel report: {exc}")
-        return 1
+        return EXIT_OUTPUT_ERROR
 
     print(f"\n✅ Excel report generated: {output_path.resolve()} (sheets: logs, summary)")
-    return 0
+    return EXIT_OK
 
 
 if __name__ == "__main__":
