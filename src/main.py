@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Alignment
 
 import pandas as pd
 
@@ -125,10 +126,23 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
         ws_logs = writer.sheets["logs"]
         ws_summary = writer.sheets["summary"]
 
-        # Force timestamp format + width
-        ws_logs.column_dimensions["A"].width = 22
-        for cell in ws_logs["A"][1:]:  # skip header cell
-            cell.number_format = "yyyy-mm-dd hh:mm:ss"
+        # Freeze header row
+        ws_logs.freeze_panes = "A2"
+
+        # Enable filter on header row
+        ws_logs.auto_filter.ref = ws_logs.dimensions
+
+        # Align columns (make date/time look like text alignment)
+        left = Alignment(horizontal="left")
+        for row in ws_logs.iter_rows(min_row=2, max_row=ws_logs.max_row, min_col=1, max_col=ws_logs.max_column):
+            for cell in row:
+                cell.alignment = left
+
+        # Optional: Force timestamp format + width
+        #ws_logs.column_dimensions["A"].width = 22
+        #for cell in ws_logs["A"][1:]:  # skip header cell
+        #    cell.number_format = "yyyy-mm-dd hh:mm:ss"
+
 
         # Optional: auto-size all columns nicely
         format_worksheet_columns(ws_logs)
