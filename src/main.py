@@ -138,6 +138,26 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
         ]
     )
 
+    # Daily summary (rows = date, columns = level counts)
+    daily_pivot = (
+        df.assign(
+            date=df["timestamp"].dt.date,
+            level=df["level"].astype(str).str.upper(),
+        )
+        .pivot_table(index="date", columns="level", values="message", aggfunc="count", fill_value=0)
+        .reset_index()
+        .sort_values("date")
+    )
+
+    # Add daily totals + daily error count
+    level_cols = [c for c in daily_pivot.columns if c != "date"]
+    daily_pivot["total_rows"] = daily_pivot[level_cols].sum(axis=1) if level_cols else 0
+    daily_pivot["error_count"] = daily_pivot["ERROR"] if "ERROR" in daily_pivot.columns else 0
+
+    # Reorder columns nicely
+    ordered_cols = ["date", "total_rows", "error_count"] + [c for c in level_cols if c not in ("total_rows", "error_count")]
+    daily_summary_df = daily_pivot[ordered_cols]
+
     df_export = df.copy()
     df_export["date"] = df_export["timestamp"].dt.date
     df_export["time"] = df_export["timestamp"].dt.strftime("%H:%M:%S")
@@ -148,9 +168,24 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
         summary_df.to_excel(writer, sheet_name="summary", index=False, startrow=0)
         per_level.to_excel(writer, sheet_name="summary", index=False, startrow=5)
         per_service.to_excel(writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3)
+        daily_summary_df.to_excel(writer, sheet_name="daily_summary", index=False)
 
         ws_logs = writer.sheets["logs"]
         ws_summary = writer.sheets["summary"]
+        ws_daily = writer.sheets["daily_summary"]
+
+        # Freeze header row + enable filters
+        ws_daily.freeze_panes = "A2"
+        ws_daily.auto_filter.ref = ws_daily.dimensions
+
+        # Left align body
+        left = Alignment(horizontal="left")
+        for row in ws_daily.iter_rows(min_row=2, max_row=ws_daily.max_row, min_col=1, max_col=ws_daily.max_column):
+            for cell in row:
+                cell.alignment = left
+
+        # Autosize columns
+        format_worksheet_columns(ws_daily)
 
         # Freeze header row
         ws_logs.freeze_panes = "A2"
