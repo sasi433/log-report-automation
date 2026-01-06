@@ -21,8 +21,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
-        default="report.xlsx",
-        help="Path to output Excel report (default: report.xlsx)",
+        default="reports/report.xlsx",
+        help="Path to output Excel report (default: reports/report.xlsx)",
     )
     return parser.parse_args()
 

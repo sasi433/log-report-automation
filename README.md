@@ -17,5 +17,5 @@ python -m pip install -r requirements.txt
 ### Usage
 
 ```bash
-python src/main.py --input sample_data/example.csv --output report.xlsx
+python src/main.py --input sample_data/example.csv --output reports/report.xlsx
 ```
