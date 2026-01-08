@@ -1,5 +1,7 @@
 # Log Report Automation
 
+![CI](../../actions/workflows/ci.yml/badge.svg)
+
 A small Python tool that reads log data from a CSV file and generates an Excel report.
 
 ## Project structure
@@ -18,7 +20,7 @@ python -m pip install -r requirements.txt
 ## Usage
 
 ```bash
-python src/main.py --input sample_data/example.csv --output reports/report.xlsx
+python -m src/main.py --input sample_data/example.csv --output reports/report.xlsx
 ```
 
 ## Optional filter
@@ -26,19 +28,32 @@ python src/main.py --input sample_data/example.csv --output reports/report.xlsx
 Filter by service name:
 
 ```bash
-python src/main.py --service api
+python -m src/main.py --service api
 ```
 
 Filter by log level:
 
 ```bash
-python src/main.py --level ERROR
+python -m src/main.py --level ERROR
 ```
 
 Combine filters:
 
 ```bash
-python src/main.py --service auth --level INFO
+python -m src/main.py --service auth --level INFO
+```
+
+## Development
+
+Install development dependencies
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+Run tests:
+```bash
+python -m pytest -q
 ```
 
 ## Report output
@@ -77,3 +92,11 @@ The CLI returns meaningful exit codes:
 - All summaries respect applied CLI filters (--service, --level)
 - Output files are written to the reports/ directory by default
 - Designed to be extended with additional report formats and analytics
+
+## Roadmap / Future ideas
+
+- HTML or JSON report output
+- Charts and visual summaries
+- Support for JSON log files
+- Configurable thresholds for alerts
+- Performance metrics and trend analysis
