@@ -1,102 +1,224 @@
 # Log Report Automation
 
-![CI](../../actions/workflows/ci.yml/badge.svg)
+Convert structured CSV log exports into a clean, professional Excel report with summary sheets.
 
-A small Python tool that reads log data from a CSV file and generates an Excel report.
+This tool is designed for situations where logs are exported from a system and need to be analyzed or shared in Excel format with non-technical stakeholders.
 
-## Project structure
+---
 
-- `src/` - source code
-- `sample_data/` - sample input data
-- `reports/` - generated Excel reports
-- `requirements.txt` - python dependencies
+## 🚀 What This Tool Does
 
-## Setup
+Given a CSV log file, this tool generates an Excel report (`.xlsx`) containing:
 
-```bash
-python -m pip install -r requirements.txt
-```
+- **logs** sheet  
+  - Full log table  
+  - Filterable  
+  - Frozen header row  
+  - Auto-sized columns  
+  - Conditional highlighting for `ERROR` rows  
 
-## Usage
+- **summary** sheet  
+  - Key metrics (total rows, error count)  
+  - Counts by level  
+  - Counts by service  
 
-```bash
-python -m src/main.py --input sample_data/example.csv --output reports/report.xlsx
-```
+- **daily_summary** sheet  
+  - Daily totals  
+  - Daily error counts  
+  - Counts per level  
 
-## Optional filter
+The output file is overwritten each time you run the command with the same output path.
 
-Filter by service name:
+---
 
-```bash
-python -m src/main.py --service api
-```
+## 📦 Installation
 
-Filter by log level:
-
-```bash
-python -m src/main.py --level ERROR
-```
-
-Combine filters:
+### Option 1: Local editable install (recommended for development)
 
 ```bash
-python -m src/main.py --service auth --level INFO
+python -m pip install -e .
 ```
 
-## Development
-
-Install development dependencies
+This exposes the CLI command:
 
 ```bash
-python -m pip install -r requirements-dev.txt
+log-report
 ```
 
-Run tests:
+---
+
+## ▶️ Usage
+
+### Basic usage
+
 ```bash
-python -m pytest -q
+log-report --input sample_data/example.csv --output reports/report.xlsx
 ```
 
-## Report output
+### With filters
 
-The generated Excel file contains the following sheets:
+Filter by service:
 
-### logs
+```bash
+log-report --input sample_data/example.csv --output reports/report.xlsx --service api
+```
 
-- Raw log rows with columns: date, time, service, level, message, response_ms
-- Includes frozen header row and Excel filters for easy exploration
+Filter by level:
 
-### summary
+```bash
+log-report --input sample_data/example.csv --output reports/report.xlsx --level ERROR
+```
 
-Overall metrics including:
-- total rows
-- error count
-- counts by log level
-- counts by service
+You can combine filters:
 
-### daily_summary
+```bash
+log-report --input sample_data/example.csv --output reports/report.xlsx --service api --level ERROR
+```
 
-Per-day aggregation showing:
-- total rows per day
-- error count per day
-- level-based counts (INFO, ERROR, etc.)
+---
 
-## Exit codes
+## 📥 Input Format
 
-The CLI returns meaningful exit codes:
-- 0 – success
-- 1 – invalid CSV or processing error
-- 2 – input file not found
-- 3 – failed to write output report
+Input must be a CSV file with the following columns:
 
-## Notes
-- All summaries respect applied CLI filters (--service, --level)
-- Output files are written to the reports/ directory by default
-- Designed to be extended with additional report formats and analytics
+- `timestamp`
+- `service`
+- `level`
+- `message`
+- `response_ms`
 
-## Roadmap / Future ideas
+Example:
 
-- HTML or JSON report output
-- Charts and visual summaries
-- Support for JSON log files
-- Configurable thresholds for alerts
-- Performance metrics and trend analysis
+```csv
+timestamp,service,level,message,response_ms
+2025-12-30T10:01:00,auth,INFO,Login ok,120
+2025-12-30T10:02:00,auth,ERROR,Token expired,0
+```
+
+Notes:
+
+- `timestamp` is parsed using `pandas.to_datetime`
+- `response_ms` is converted to numeric
+- Rows are sorted by timestamp before report generation
+
+If required columns are missing, the tool fails with a clear validation error.
+
+---
+
+## 📤 Output Structure
+
+The generated Excel file contains three sheets:
+
+### 1️⃣ logs
+
+Columns:
+
+- date
+- time
+- service
+- level
+- message
+- response_ms
+
+Features:
+
+- Header row frozen
+- Auto filter enabled
+- Conditional formatting for `ERROR` rows
+- Auto-sized columns
+
+---
+
+### 2️⃣ summary
+
+Contains:
+
+- Key metrics table  
+  - total_rows  
+  - error_count  
+
+- Counts by level  
+- Counts by service  
+
+---
+
+### 3️⃣ daily_summary
+
+Contains:
+
+- date  
+- total_rows  
+- error_count  
+- Counts per level (e.g., INFO, ERROR)
+
+---
+
+## 🧪 Development
+
+### Run linting
+
+```bash
+python -m ruff check . --fix
+```
+
+### Format code
+
+```bash
+python -m black .
+```
+
+### Run tests
+
+```bash
+python -m pytest
+```
+
+The project includes:
+
+- Unit tests for validation
+- Integration test verifying Excel file structure and sheet names
+
+---
+
+## 🏗 Project Structure
+
+```
+log-report-automation/
+│
+├── src/
+│   ├── cli.py
+│   ├── main.py
+│   └── report_utils.py
+│
+├── tests/
+│   ├── test_validation.py
+│   └── test_report_integration.py
+│
+├── sample_data/
+│   └── example.csv
+│
+├── pyproject.toml
+└── README.md
+```
+
+---
+
+## 🎯 Intended Use Cases
+
+- Teams exporting logs from services into CSV
+- Support engineers creating Excel summaries
+- DevOps teams needing quick report generation
+- Small internal reporting workflows
+- Client-facing Excel deliverables from raw log exports
+
+---
+
+## 🧠 Design Goals
+
+- Simple CLI interface
+- Clean Excel output
+- Predictable structure
+- Clear validation errors
+- Testable and reproducible
+- No external services required
+
