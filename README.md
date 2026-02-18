@@ -1,39 +1,51 @@
 # Log Report Automation
 
-Convert structured CSV log exports into a clean, professional Excel report with summary sheets.
+Convert structured CSV log exports into a clean, professional Excel report with structured summary sheets.
 
-This tool is designed for situations where logs are exported from a system and need to be analyzed or shared in Excel format with non-technical stakeholders.
+This tool transforms operational log data into a stakeholder-friendly Excel report using a simple CLI interface.
 
 ---
 
-## 🚀 What This Tool Does
+## 🔎 Overview
 
-Given a CSV log file, this tool generates an Excel report (`.xlsx`) containing:
+`log-report` is a lightweight command-line tool that:
 
-- **logs** sheet  
-  - Full log table  
-  - Filterable  
-  - Frozen header row  
-  - Auto-sized columns  
-  - Conditional highlighting for `ERROR` rows  
+- Reads structured CSV log exports
+- Validates schema
+- Normalizes and filters data
+- Generates a formatted Excel report
+- Produces operational summary sheets
 
-- **summary** sheet  
-  - Key metrics (total rows, error count)  
-  - Counts by level  
-  - Counts by service  
+The goal is to bridge the gap between raw logs and business-ready reporting.
 
-- **daily_summary** sheet  
-  - Daily totals  
-  - Daily error counts  
-  - Counts per level  
+---
 
-The output file is overwritten each time you run the command with the same output path.
+## ✨ Features
+
+### 📄 logs Sheet
+- Complete log table
+- Auto filter enabled
+- Frozen header row
+- Auto-sized columns
+- Conditional highlighting for `ERROR` rows
+- Clean header styling
+
+### 📊 summary Sheet
+- Key metrics (total rows, error count)
+- Counts by level (INFO / WARN / ERROR)
+- Counts by service
+- Clear section layout
+
+### 📅 daily_summary Sheet
+- Daily totals
+- Daily error counts
+- Per-level breakdown per day
 
 ---
 
 ## 📦 Installation
 
-### Option 1: Local editable install (recommended for development)
+### Editable Install (Recommended for Development)
 
 ```bash
 python -m pip install -e .
@@ -49,37 +61,53 @@ log-report
 
 ## ▶️ Usage
 
-### Basic usage
+### Basic Usage
 
 ```bash
 log-report --input sample_data/example.csv --output reports/report.xlsx
 ```
 
-### With filters
+### Generate Production-Like Demo Data
 
-Filter by service:
+```bash
+python tools/generate_demo_csv.py --rows 500 --days 14
+```
+
+Then generate the report:
+
+```bash
+log-report --input sample_data/demo_production_logs.csv --output reports/report.xlsx
+```
+
+### Filter by Service
 
 ```bash
 log-report --input sample_data/example.csv --output reports/report.xlsx --service api
 ```
 
-Filter by level:
+### Filter by Level
 
 ```bash
 log-report --input sample_data/example.csv --output reports/report.xlsx --level ERROR
 ```
 
-You can combine filters:
+### Combine Filters
 
 ```bash
-log-report --input sample_data/example.csv --output reports/report.xlsx --service api --level ERROR
+log-report \
+  --input sample_data/demo_production_logs.csv \
+  --output reports/report.xlsx \
+  --service api \
+  --level ERROR
 ```
+
+The output file is overwritten if the same path is used.
 
 ---
 
 ## 📥 Input Format
 
-Input must be a CSV file with the following columns:
+The input must be a CSV file with the following columns:
 
 - `timestamp`
 - `service`
@@ -91,23 +119,24 @@ Example:
 
 ```csv
 timestamp,service,level,message,response_ms
-2025-12-30T10:01:00,auth,INFO,Login ok,120
-2025-12-30T10:02:00,auth,ERROR,Token expired,0
+2026-02-04T07:51:33Z,search,ERROR,Upstream timeout,1256
 ```
 
-Notes:
+### Behavior
 
 - `timestamp` is parsed using `pandas.to_datetime`
 - `response_ms` is converted to numeric
-- Rows are sorted by timestamp before report generation
-
-If required columns are missing, the tool fails with a clear validation error.
+- `level` is normalized to uppercase
+- Rows are sorted chronologically
+- Missing required columns trigger a validation error
 
 ---
 
 ## 📤 Output Structure
 
 The generated Excel file contains three sheets:
+
+---
 
 ### 1️⃣ logs
 
@@ -122,10 +151,10 @@ Columns:
 
 Features:
 
-- Header row frozen
+- Header row styled
 - Auto filter enabled
-- Conditional formatting for `ERROR` rows
-- Auto-sized columns
+- `ERROR` rows conditionally highlighted
+- Columns auto-sized
 
 ---
 
@@ -133,50 +162,65 @@ Features:
 
 Contains:
 
-- Key metrics table  
-  - total_rows  
-  - error_count  
+**Key Metrics**
+- total_rows
+- error_count
 
-- Counts by level  
-- Counts by service  
+**Counts by Level**
+- INFO
+- WARN
+- ERROR
+
+**Counts by Service**
+- api
+- auth
+- db
+- payments
+- search
+- notifications
 
 ---
 
 ### 3️⃣ daily_summary
 
-Contains:
+Columns:
 
-- date  
-- total_rows  
-- error_count  
-- Counts per level (e.g., INFO, ERROR)
+- date
+- total_rows
+- error_count
+- INFO
+- WARN
+- ERROR
+
+Provides a daily operational overview.
 
 ---
 
 ## 🧪 Development
 
-### Run linting
+### Lint
 
 ```bash
 python -m ruff check . --fix
 ```
 
-### Format code
+### Format
 
 ```bash
 python -m black .
 ```
 
-### Run tests
+### Run Tests
 
 ```bash
 python -m pytest
 ```
 
-The project includes:
+Test coverage includes:
 
-- Unit tests for validation
-- Integration test verifying Excel file structure and sheet names
+- CSV schema validation
+- File-not-found handling
+- Excel integration test (sheet existence and structure)
 
 ---
 
@@ -195,7 +239,11 @@ log-report-automation/
 │   └── test_report_integration.py
 │
 ├── sample_data/
-│   └── example.csv
+│   ├── example.csv
+│   └── demo_production_logs.csv
+│
+├── tools/
+│   └── generate_demo_csv.py
 │
 ├── pyproject.toml
 └── README.md
@@ -205,20 +253,21 @@ log-report-automation/
 
 ## 🎯 Intended Use Cases
 
-- Teams exporting logs from services into CSV
+- DevOps teams exporting structured logs
 - Support engineers creating Excel summaries
-- DevOps teams needing quick report generation
-- Small internal reporting workflows
-- Client-facing Excel deliverables from raw log exports
+- Internal operational reporting
+- Incident review reporting
+- Client-facing Excel deliverables
+- Lightweight reporting without BI tools
 
 ---
 
-## 🧠 Design Goals
+## 🧠 Design Principles
 
 - Simple CLI interface
-- Clean Excel output
-- Predictable structure
+- Deterministic output
 - Clear validation errors
+- Separation of data logic and formatting
 - Testable and reproducible
 - No external services required
-
+- Works fully offline
