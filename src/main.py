@@ -14,6 +14,12 @@ EXIT_OUTPUT_ERROR = 3
 
 
 def parse_args() -> argparse.Namespace:
+    """
+    Parse CLI arguments for `log-report`.
+
+    Returns:
+        argparse.Namespace with input/output/service/level
+    """
     parser = argparse.ArgumentParser(
         prog="log-report",
         description="Log Report Automation - generate simple reports from CSV logs.",
@@ -28,6 +34,9 @@ def parse_args() -> argparse.Namespace:
 
 
 def print_stats(df: pd.DataFrame) -> None:
+    """
+    Print basic stats to console for quick verification.
+    """
     print("\n--- Basic stats ---")
     print(f"Total rows: {len(df)}")
 
@@ -48,6 +57,12 @@ def print_stats(df: pd.DataFrame) -> None:
 
 
 def main() -> int:
+    """
+    Main CLI flow:
+      - load CSV
+      - apply filters
+      - write XLSX report
+    """
     args = parse_args()
     input_path = Path(args.input)
     output_path = Path(args.output)

@@ -4,6 +4,7 @@ from .main import main
 
 
 def run() -> None:
+    """Console-script entrypoint for the `log-report` command."""
     raise SystemExit(main())
 
 
