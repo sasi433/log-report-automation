@@ -4,7 +4,7 @@ from .main import main
 
 
 def run() -> None:
-    main()
+    raise SystemExit(main())
 
 
 if __name__ == "__main__":
