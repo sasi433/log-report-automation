@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "log-report-automation"
+version = "0.1.0"
+description = "Convert CSV log exports into an Excel report with summary sheets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "openpyxl",
+]
+
+[project.scripts]
+log-report = "src.cli:run"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+exclude = '''
+/(
+  \.git
+| \.venv
+| build
+| dist
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = [".venv", "build", "dist"]
+lint.select = ["E", "F", "I", "B", "UP"]
+lint.ignore = ["E501"]  # Black handles line length
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

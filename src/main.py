@@ -27,7 +27,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--input", default="sample_data/example.csv")
     parser.add_argument("--output", default="reports/report.xlsx")
-    parser.add_argument("--service", default=None, help="Filter by service name (e.g., api, auth, db)")
+    parser.add_argument(
+        "--service", default=None, help="Filter by service name (e.g., api, auth, db)"
+    )
     parser.add_argument("--level", default=None, help="Filter by level (e.g., INFO, ERROR)")
     return parser.parse_args()
 
@@ -81,7 +83,9 @@ def write_excel_report(df: pd.DataFrame, output_path: Path) -> None:
 
         summary_df.to_excel(writer, sheet_name="summary", index=False, startrow=0)
         per_level.to_excel(writer, sheet_name="summary", index=False, startrow=5)
-        per_service.to_excel(writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3)
+        per_service.to_excel(
+            writer, sheet_name="summary", index=False, startrow=5 + len(per_level) + 3
+        )
 
         daily_summary_df.to_excel(writer, sheet_name="daily_summary", index=False)
 
@@ -143,7 +147,9 @@ def main() -> int:
         print(f"\n❌ Failed to write Excel report: {exc}")
         return EXIT_OUTPUT_ERROR
 
-    print(f"\n✅ Excel report generated: {output_path.resolve()} (sheets: logs, summary, daily_summary)")
+    print(
+        f"\n✅ Excel report generated: {output_path.resolve()} (sheets: logs, summary, daily_summary)"
+    )
     return EXIT_OK
 
 

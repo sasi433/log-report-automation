@@ -26,8 +26,7 @@ def test_load_logs_file_not_found(tmp_path: Path):
 def test_load_logs_happy_path(tmp_path: Path):
     p = tmp_path / "logs.csv"
     p.write_text(
-        "timestamp,service,level,message,response_ms\n"
-        "2025-01-01 10:00:00,api,INFO,ok,12\n"
+        "timestamp,service,level,message,response_ms\n" "2025-01-01 10:00:00,api,INFO,ok,12\n"
     )
     df = load_logs(p)
     assert len(df) == 1

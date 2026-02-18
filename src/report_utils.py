@@ -88,5 +88,7 @@ def build_daily_summary(df: pd.DataFrame) -> pd.DataFrame:
     daily_pivot["total_rows"] = daily_pivot[level_cols].sum(axis=1) if level_cols else 0
     daily_pivot["error_count"] = daily_pivot["ERROR"] if "ERROR" in daily_pivot.columns else 0
 
-    ordered_cols = ["date", "total_rows", "error_count"] + [c for c in level_cols if c not in ("total_rows", "error_count")]
+    ordered_cols = ["date", "total_rows", "error_count"] + [
+        c for c in level_cols if c not in ("total_rows", "error_count")
+    ]
     return daily_pivot[ordered_cols]
