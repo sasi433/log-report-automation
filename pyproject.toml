@@ -31,6 +31,7 @@ exclude = '''
 /(
   \.git
 | \.venv
+| \.python
 | build
 | dist
 )/
