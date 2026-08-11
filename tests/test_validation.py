@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from src.report_utils import apply_filters, load_logs, validate_logs
+from log_report.report_utils import apply_filters, load_logs, validate_logs
 
 
 def test_validate_logs_missing_column_raises():

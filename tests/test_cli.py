@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import sys
 
-from src.main import EXIT_INPUT_MISSING, EXIT_OK, main
+from log_report.cli import EXIT_INPUT_MISSING, EXIT_OK, main
 
 
 def test_cli_missing_input_returns_distinct_exit_code(tmp_path, monkeypatch, capsys):

@@ -14,24 +14,22 @@ dependencies = [
 ]
 
 [project.scripts]
-log-report = "src.cli:run"
+log-report = "log_report.cli:run"
 
 [tool.setuptools]
-package-dir = {"" = "."}
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["src*"]
+where = ["src"]
+include = ["log_report*"]
 
 
 [tool.black]
 line-length = 100
 target-version = ["py310"]
-exclude = '''
+extend-exclude = '''
 /(
-  \.git
-| \.venv
-| \.python
+  \.python
 | build
 | dist
 )/

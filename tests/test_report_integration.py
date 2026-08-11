@@ -4,7 +4,7 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from src.report_utils import load_logs, write_excel_report
+from log_report.report_utils import load_logs, write_excel_report
 
 
 def test_write_excel_report_creates_expected_sheets(tmp_path: Path) -> None:

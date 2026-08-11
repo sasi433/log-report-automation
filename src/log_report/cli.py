@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.report_utils import apply_filters, load_logs, write_excel_report
+from .report_utils import apply_filters, load_logs, write_excel_report
 
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -105,5 +105,10 @@ def main() -> int:
     return EXIT_OK
 
 
-if __name__ == "__main__":
+def run() -> None:
+    """Console-script entrypoint for the ``log-report`` command."""
     raise SystemExit(main())
+
+
+if __name__ == "__main__":
+    run()
