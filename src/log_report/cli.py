@@ -5,7 +5,9 @@ from pathlib import Path
 
 import pandas as pd
 
-from .report_utils import apply_filters, load_logs, write_excel_report
+from .analytics import apply_filters
+from .excel_writer import write_excel_report
+from .validation import ISSUE_ORDER, LogValidationError, ValidationResult, load_logs
 
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -13,61 +15,54 @@ EXIT_INPUT_MISSING = 2
 EXIT_OUTPUT_ERROR = 3
 
 
-def parse_args() -> argparse.Namespace:
-    """
-    Parse CLI arguments for `log-report`.
-
-    Returns:
-        argparse.Namespace with input/output/service/level
-    """
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse command-line arguments for ``log-report``."""
     parser = argparse.ArgumentParser(
         prog="log-report",
-        description="Log Report Automation - generate simple reports from CSV logs.",
+        description="Validate CSV operational logs and generate an Excel report.",
     )
     parser.add_argument("--input", default="sample_data/example.csv", help="Path to input CSV")
     parser.add_argument("--output", default="reports/report.xlsx", help="Path to output XLSX")
+    parser.add_argument("--service", default=None, help="Filter by exact service name")
+    parser.add_argument("--level", default=None, help="Filter by level (INFO, WARN, ERROR)")
     parser.add_argument(
-        "--service", default=None, help="Filter by service name (e.g., api, auth, db)"
+        "--validation",
+        choices=("strict", "lenient"),
+        default="strict",
+        help="Validation behavior for invalid rows (default: strict)",
     )
-    parser.add_argument("--level", default=None, help="Filter by level (e.g., INFO, ERROR)")
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def print_stats(df: pd.DataFrame) -> None:
-    """
-    Print basic stats to console for quick verification.
-    """
-    print("\n--- Basic stats ---")
+    """Print basic row counts for quick command-line verification."""
+    print("\n--- Report stats ---")
     print(f"Total rows: {len(df)}")
-
     print("\nCount by level:")
     print(df["level"].value_counts(dropna=False).to_string())
-
     print("\nCount by service:")
     print(df["service"].value_counts(dropna=False).to_string())
 
-    bad_ts = int(df["timestamp"].isna().sum())
-    bad_ms = int(df["response_ms"].isna().sum())
-    if bad_ts or bad_ms:
-        print("\nData quality warnings:")
-        if bad_ts:
-            print(f"- Invalid timestamps: {bad_ts}")
-        if bad_ms:
-            print(f"- Invalid response_ms values: {bad_ms}")
+
+def print_quality(result: ValidationResult) -> None:
+    """Print a concise validation summary for lenient report generation."""
+    if not result.issues:
+        return
+    print(f"\nValidation issues: {result.affected_rows} affected rows")
+    counts = result.issue_counts
+    for issue in ISSUE_ORDER:
+        if counts[issue]:
+            print(f"- {issue}: {counts[issue]}")
+    print(f"- Rejected rows: {result.rejected_rows}")
 
 
-def main() -> int:
-    """
-    Main CLI flow:
-      - load CSV
-      - apply filters
-      - write XLSX report
-    """
-    args = parse_args()
+def main(argv: list[str] | None = None) -> int:
+    """Load, validate, filter, and export operational log data."""
+    args = parse_args(argv)
     input_path = Path(args.input)
     output_path = Path(args.output)
 
-    print("✅ Log Report Automation")
+    print("Log Report Automation")
     print(f"Input : {input_path.resolve()}")
     print(f"Output: {output_path.resolve()}")
 
@@ -79,29 +74,32 @@ def main() -> int:
             print(f"level   = {args.level.upper()}")
 
     try:
-        df = load_logs(input_path)
-        df = apply_filters(df, args.service, args.level)
+        validation = load_logs(input_path, mode=args.validation)
+        df = apply_filters(validation.data, args.service, args.level)
     except FileNotFoundError as exc:
-        print(f"\n❌ {exc}")
+        print(f"\nError: {exc}")
         return EXIT_INPUT_MISSING
+    except LogValidationError as exc:
+        print(f"\n{exc}")
+        return EXIT_ERROR
     except Exception as exc:
-        print(f"\n❌ Error: {exc}")
+        print(f"\nError: {exc}")
         return EXIT_ERROR
 
+    print_quality(validation)
     if df.empty:
-        print("\n⚠️ No rows match the given filters. No report generated.")
+        print("\nNo usable rows match the given filters. No report generated.")
         return EXIT_OK
 
     print_stats(df)
-
     try:
-        write_excel_report(df, output_path)
+        write_excel_report(df, output_path, validation)
     except Exception as exc:
-        print(f"\n❌ Failed to write Excel report: {exc}")
+        print(f"\nFailed to write Excel report: {exc}")
         return EXIT_OUTPUT_ERROR
 
-    print("\n✅ Excel report generated successfully.")
-    print("Sheets: logs, summary, daily_summary")
+    print("\nExcel report generated successfully.")
+    print("Sheets: summary, logs, daily_summary, data_quality")
     return EXIT_OK
 
 

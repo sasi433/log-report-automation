@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import sys
 
-from log_report.cli import EXIT_INPUT_MISSING, EXIT_OK, main
+from openpyxl import load_workbook
+
+from log_report.cli import EXIT_ERROR, EXIT_INPUT_MISSING, EXIT_OK, main
 
 
 def test_cli_missing_input_returns_distinct_exit_code(tmp_path, monkeypatch, capsys):
@@ -34,4 +36,50 @@ def test_cli_empty_filter_does_not_create_report(tmp_path, monkeypatch, capsys):
 
     assert main() == EXIT_OK
     assert not output_path.exists()
-    assert "No rows match" in capsys.readouterr().out
+    assert "No usable rows match" in capsys.readouterr().out
+
+
+def write_invalid_csv(path):
+    path.write_text(
+        "timestamp,service,level,message,response_ms\n"
+        "2025-01-01T10:00:00Z,api,INFO,ok,25\n"
+        "bad-date,api,ERROR,bad timestamp,50\n"
+        "2025-01-01T11:00:00Z,,WARN,no service,75\n",
+        encoding="utf-8",
+    )
+
+
+def test_cli_strict_validation_fails_without_report(tmp_path, capsys):
+    input_path = tmp_path / "invalid.csv"
+    output_path = tmp_path / "report.xlsx"
+    write_invalid_csv(input_path)
+
+    exit_code = main(["--input", str(input_path), "--output", str(output_path)])
+
+    assert exit_code == EXIT_ERROR
+    assert not output_path.exists()
+    assert "Validation failed: 2 invalid rows" in capsys.readouterr().out
+
+
+def test_cli_lenient_validation_writes_quality_sheet(tmp_path, capsys):
+    input_path = tmp_path / "invalid.csv"
+    output_path = tmp_path / "report.xlsx"
+    write_invalid_csv(input_path)
+
+    exit_code = main(
+        [
+            "--input",
+            str(input_path),
+            "--output",
+            str(output_path),
+            "--validation",
+            "lenient",
+        ]
+    )
+
+    assert exit_code == EXIT_OK
+    assert output_path.exists()
+    output = capsys.readouterr().out
+    assert "Rejected rows: 2" in output
+    assert "Sheets: summary, logs, daily_summary, data_quality" in output
+    assert "data_quality" in load_workbook(output_path).sheetnames

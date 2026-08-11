@@ -4,20 +4,21 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from log_report.report_utils import load_logs, write_excel_report
+from log_report.excel_writer import write_excel_report
+from log_report.validation import load_logs
 
 
 def test_write_excel_report_creates_expected_sheets(tmp_path: Path) -> None:
     input_csv = Path("sample_data/example.csv")
     output_xlsx = tmp_path / "report.xlsx"
 
-    df = load_logs(input_csv)
-    write_excel_report(df, output_xlsx)
+    result = load_logs(input_csv)
+    write_excel_report(result.data, output_xlsx, result)
 
     assert output_xlsx.exists()
 
     wb = load_workbook(output_xlsx)
-    assert set(wb.sheetnames) == {"logs", "summary", "daily_summary"}
+    assert wb.sheetnames == ["summary", "logs", "daily_summary", "data_quality"]
 
     # logs sheet: header sanity
     ws_logs = wb["logs"]
@@ -29,7 +30,7 @@ def test_write_excel_report_creates_expected_sheets(tmp_path: Path) -> None:
 
     # summary: key metrics table exists
     ws_summary = wb["summary"]
-    assert ws_summary["A1"].value in ("Key Metrics", "metric")  # depends on title styling
+    assert ws_summary["A1"].value == "Log Report Summary"
     # these should exist somewhere near the top (robust checks)
     values = [ws_summary.cell(row=r, column=1).value for r in range(1, 15)]
     assert "metric" in values or "Key Metrics" in values
@@ -38,3 +39,7 @@ def test_write_excel_report_creates_expected_sheets(tmp_path: Path) -> None:
     ws_daily = wb["daily_summary"]
     daily_headers = [cell.value for cell in ws_daily[1]]
     assert "date" in daily_headers
+
+    ws_quality = wb["data_quality"]
+    assert ws_quality["A1"].value == "Data Quality"
+    assert wb.active.title == "summary"
