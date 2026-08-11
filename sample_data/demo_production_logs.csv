@@ -1,501 +1,501 @@
 timestamp,service,level,message,response_ms
-2026-01-01T02:21:15Z,search,INFO,Request completed,184
-2026-01-01T03:40:25Z,auth,INFO,User profile loaded,111
-2026-01-01T04:50:53Z,auth,INFO,Feature flag evaluated,91
-2026-01-01T07:51:33Z,search,ERROR,Upstream timeout,1256
-2026-01-01T07:59:21Z,payments,INFO,User profile loaded,241
-2026-01-01T08:04:06Z,db,INFO,User profile loaded,60
-2026-01-01T08:14:01Z,db,INFO,Background job finished,46
-2026-01-01T08:22:40Z,notifications,WARN,Circuit breaker half-open,171
-2026-01-01T08:29:03Z,search,INFO,Cache hit,164
-2026-01-01T09:14:01Z,search,INFO,Request completed,209
-2026-01-01T09:47:42Z,payments,INFO,User profile loaded,202
-2026-01-01T10:43:07Z,search,INFO,Feature flag evaluated,169
-2026-01-01T10:50:19Z,auth,WARN,Slow query detected,410
-2026-01-01T11:18:52Z,payments,INFO,Request completed,204
-2026-01-01T11:26:09Z,auth,INFO,Session refreshed,99
-2026-01-01T12:20:16Z,auth,ERROR,Payment provider error,1081
-2026-01-01T12:42:53Z,notifications,INFO,Session refreshed,82
-2026-01-01T13:00:52Z,api,INFO,Session refreshed,127
-2026-01-01T13:01:24Z,api,INFO,Request completed,137
-2026-01-01T13:03:35Z,search,WARN,Retrying request,375
-2026-01-01T13:34:57Z,search,INFO,Feature flag evaluated,180
-2026-01-01T13:44:08Z,payments,INFO,Request completed,212
-2026-01-01T14:10:07Z,auth,INFO,Request completed,153
-2026-01-01T14:13:42Z,payments,INFO,User profile loaded,193
-2026-01-01T14:36:52Z,api,INFO,Request completed,188
-2026-01-01T14:43:28Z,search,INFO,Feature flag evaluated,203
-2026-01-01T16:14:36Z,notifications,INFO,Cache hit,111
-2026-01-01T16:15:14Z,api,INFO,User profile loaded,171
-2026-01-01T16:26:55Z,payments,INFO,Cache miss,195
-2026-01-01T16:28:34Z,api,INFO,User profile loaded,154
-2026-01-01T16:58:22Z,payments,INFO,User profile loaded,207
-2026-01-01T18:33:09Z,auth,INFO,Background job finished,98
-2026-01-01T20:48:53Z,db,INFO,Request completed,41
-2026-01-01T21:03:10Z,search,INFO,User profile loaded,202
-2026-01-01T21:21:53Z,payments,INFO,Cache hit,217
-2026-01-02T00:16:14Z,db,INFO,Session refreshed,47
-2026-01-02T00:39:36Z,search,INFO,Request completed,168
-2026-01-02T02:14:49Z,auth,INFO,Request completed,114
-2026-01-02T02:35:57Z,db,INFO,Request completed,46
-2026-01-02T02:46:21Z,notifications,INFO,Request completed,129
-2026-01-02T03:09:24Z,payments,INFO,User profile loaded,2949
-2026-01-02T04:05:05Z,auth,INFO,Cache hit,99
-2026-01-02T04:23:56Z,auth,INFO,Feature flag evaluated,94
-2026-01-02T05:46:09Z,auth,INFO,Feature flag evaluated,90
-2026-01-02T06:14:24Z,payments,INFO,Request completed,216
-2026-01-02T06:27:40Z,auth,INFO,Cache miss,139
-2026-01-02T06:40:01Z,api,INFO,Cache miss,142
-2026-01-02T08:20:00Z,payments,INFO,Feature flag evaluated,189
-2026-01-02T08:32:38Z,api,INFO,User profile loaded,135
-2026-01-02T08:36:22Z,db,ERROR,Database connection failed,1098
-2026-01-02T08:40:38Z,api,WARN,Upstream latency high,351
-2026-01-02T09:32:25Z,api,WARN,Circuit breaker half-open,438
-2026-01-02T09:43:37Z,db,INFO,Request completed,86
-2026-01-02T09:59:28Z,auth,WARN,Upstream latency high,210
-2026-01-02T10:56:13Z,payments,INFO,Background job finished,202
-2026-01-02T11:06:15Z,auth,INFO,Feature flag evaluated,90
-2026-01-02T11:24:35Z,db,WARN,Upstream latency high,236
-2026-01-02T11:47:02Z,auth,INFO,Cache hit,126
-2026-01-02T11:57:45Z,auth,WARN,Slow query detected,251
-2026-01-02T12:07:19Z,payments,ERROR,Database connection failed,1040
-2026-01-02T12:07:33Z,db,INFO,User profile loaded,68
-2026-01-02T12:13:51Z,api,INFO,Feature flag evaluated,125
-2026-01-02T12:22:03Z,api,INFO,Session refreshed,190
-2026-01-02T12:47:34Z,api,INFO,Request completed,131
-2026-01-02T12:55:40Z,db,INFO,Background job finished,120
-2026-01-02T13:00:23Z,api,INFO,Cache hit,127
-2026-01-02T13:43:03Z,api,INFO,Background job finished,145
-2026-01-02T13:49:13Z,auth,INFO,Feature flag evaluated,116
-2026-01-02T14:24:22Z,search,INFO,Request completed,162
-2026-01-02T14:56:49Z,api,INFO,Cache hit,155
-2026-01-02T15:09:31Z,search,INFO,User profile loaded,199
-2026-01-02T15:16:05Z,auth,WARN,Upstream latency high,376
-2026-01-02T15:34:48Z,auth,INFO,Request completed,121
-2026-01-02T17:01:21Z,notifications,INFO,Request completed,117
-2026-01-02T18:55:02Z,notifications,WARN,Retrying request,181
-2026-01-02T19:41:21Z,notifications,INFO,Cache hit,83
-2026-01-02T20:20:31Z,auth,INFO,Cache hit,134
-2026-01-02T21:12:37Z,search,INFO,Feature flag evaluated,211
-2026-01-03T00:35:59Z,api,INFO,Background job finished,177
-2026-01-03T02:05:43Z,auth,ERROR,Null reference in handler,1154
-2026-01-03T03:22:37Z,auth,ERROR,Null reference in handler,715
-2026-01-03T04:18:20Z,payments,INFO,Request completed,220
-2026-01-03T06:19:17Z,db,INFO,Cache miss,80
-2026-01-03T07:14:39Z,notifications,INFO,Request completed,154
-2026-01-03T07:25:23Z,payments,WARN,Upstream latency high,415
-2026-01-03T07:42:24Z,payments,WARN,Rate limit nearing threshold,367
-2026-01-03T08:08:47Z,auth,INFO,Request completed,144
-2026-01-03T09:00:35Z,auth,INFO,Feature flag evaluated,100
-2026-01-03T09:18:45Z,api,WARN,Queue depth rising,413
-2026-01-03T09:38:13Z,payments,INFO,User profile loaded,201
-2026-01-03T10:11:58Z,notifications,WARN,Upstream latency high,223
-2026-01-03T10:23:42Z,search,INFO,Session refreshed,214
-2026-01-03T10:24:23Z,api,INFO,Cache miss,126
-2026-01-03T10:53:36Z,auth,INFO,Request completed,206
-2026-01-03T10:58:18Z,auth,INFO,User profile loaded,106
-2026-01-03T11:17:29Z,api,WARN,Retrying request,244
-2026-01-03T11:44:56Z,payments,INFO,User profile loaded,207
-2026-01-03T12:05:48Z,api,INFO,User profile loaded,139
-2026-01-03T12:22:33Z,db,WARN,Retrying request,234
-2026-01-03T13:51:11Z,api,WARN,Upstream latency high,394
-2026-01-03T16:08:06Z,auth,INFO,Background job finished,94
-2026-01-03T16:32:35Z,api,INFO,Request completed,140
-2026-01-03T16:41:17Z,payments,WARN,Slow query detected,406
-2026-01-03T16:41:31Z,search,INFO,Cache miss,197
-2026-01-03T16:42:06Z,api,INFO,Session refreshed,195
-2026-01-03T16:50:51Z,notifications,INFO,User profile loaded,94
-2026-01-03T21:39:43Z,auth,INFO,Background job finished,113
-2026-01-03T22:21:49Z,db,INFO,Request completed,108
-2026-01-03T23:43:16Z,api,INFO,Feature flag evaluated,134
-2026-01-04T00:22:53Z,payments,INFO,Session refreshed,193
-2026-01-04T00:42:05Z,search,WARN,Queue depth rising,310
-2026-01-04T02:12:56Z,api,WARN,Rate limit nearing threshold,313
-2026-01-04T03:07:29Z,auth,INFO,Session refreshed,103
-2026-01-04T05:12:50Z,api,INFO,Request completed,145
-2026-01-04T07:01:39Z,api,INFO,User profile loaded,123
-2026-01-04T07:33:16Z,notifications,INFO,Cache miss,98
-2026-01-04T08:08:59Z,auth,WARN,Retrying request,429
-2026-01-04T08:50:44Z,api,WARN,Slow query detected,329
-2026-01-04T09:02:28Z,api,WARN,Upstream latency high,420
-2026-01-04T09:11:43Z,api,ERROR,Null reference in handler,457
-2026-01-04T09:54:20Z,search,INFO,Feature flag evaluated,177
-2026-01-04T10:10:28Z,notifications,INFO,Session refreshed,162
-2026-01-04T11:17:51Z,notifications,INFO,Request completed,98
-2026-01-04T11:27:24Z,api,INFO,Cache hit,153
-2026-01-04T12:05:25Z,search,INFO,Session refreshed,246
-2026-01-04T12:16:49Z,auth,INFO,Background job finished,103
-2026-01-04T13:32:12Z,payments,INFO,Request completed,259
-2026-01-04T13:54:24Z,payments,INFO,Cache miss,184
-2026-01-04T14:03:03Z,auth,INFO,Feature flag evaluated,111
-2026-01-04T14:25:32Z,api,INFO,User profile loaded,200
-2026-01-04T14:48:52Z,payments,INFO,Request completed,184
-2026-01-04T15:22:19Z,api,INFO,Session refreshed,157
-2026-01-04T15:31:26Z,notifications,INFO,Request completed,77
-2026-01-04T15:45:13Z,auth,INFO,Cache hit,99
-2026-01-04T16:27:06Z,payments,INFO,Request completed,196
-2026-01-04T16:31:21Z,auth,INFO,Request completed,116
-2026-01-04T16:31:32Z,auth,WARN,Retrying request,320
-2026-01-04T16:43:48Z,db,INFO,Session refreshed,77
-2026-01-04T18:17:59Z,db,INFO,Request completed,41
-2026-01-04T20:37:46Z,notifications,INFO,Session refreshed,2580
-2026-01-04T22:06:15Z,payments,INFO,Feature flag evaluated,182
-2026-01-04T22:54:52Z,auth,INFO,User profile loaded,95
-2026-01-04T23:58:08Z,notifications,INFO,Feature flag evaluated,70
-2026-01-05T00:55:43Z,payments,ERROR,503 Service unavailable,1306
-2026-01-05T02:14:35Z,payments,INFO,Request completed,215
-2026-01-05T02:30:55Z,auth,WARN,Queue depth rising,211
-2026-01-05T05:01:20Z,api,WARN,Retrying request,393
-2026-01-05T05:01:59Z,auth,INFO,Background job finished,158
-2026-01-05T05:23:44Z,api,INFO,Session refreshed,130
-2026-01-05T06:47:35Z,db,INFO,Cache miss,72
-2026-01-05T07:07:21Z,api,INFO,Cache hit,133
-2026-01-05T07:28:35Z,payments,INFO,Request completed,189
-2026-01-05T07:33:48Z,api,INFO,Feature flag evaluated,134
-2026-01-05T07:37:27Z,payments,INFO,Request completed,200
-2026-01-05T07:56:46Z,payments,INFO,User profile loaded,207
-2026-01-05T08:32:56Z,db,INFO,Background job finished,83
-2026-01-05T08:44:04Z,auth,INFO,User profile loaded,145
-2026-01-05T09:05:20Z,payments,INFO,Session refreshed,234
-2026-01-05T09:06:03Z,auth,INFO,Cache miss,153
-2026-01-05T09:41:03Z,search,INFO,Session refreshed,168
-2026-01-05T10:28:48Z,auth,INFO,Session refreshed,117
-2026-01-05T11:06:42Z,db,INFO,User profile loaded,114
-2026-01-05T11:32:09Z,notifications,INFO,Background job finished,72
-2026-01-05T11:39:22Z,api,INFO,User profile loaded,124
-2026-01-05T11:53:23Z,api,INFO,User profile loaded,138
-2026-01-05T11:55:54Z,api,ERROR,Database connection failed,903
-2026-01-05T12:33:38Z,db,INFO,User profile loaded,104
-2026-01-05T13:18:01Z,search,WARN,Retrying request,265
-2026-01-05T13:38:27Z,search,WARN,Slow query detected,365
-2026-01-05T13:54:06Z,auth,WARN,Queue depth rising,275
-2026-01-05T13:54:32Z,search,INFO,Request completed,168
-2026-01-05T14:32:53Z,db,INFO,Session refreshed,144
-2026-01-05T15:10:15Z,api,INFO,Request completed,159
-2026-01-05T17:39:03Z,db,INFO,Request completed,46
-2026-01-05T17:45:13Z,payments,INFO,Cache miss,190
-2026-01-05T17:45:28Z,api,INFO,User profile loaded,146
-2026-01-05T17:54:26Z,auth,INFO,Cache hit,154
-2026-01-05T18:04:03Z,api,INFO,User profile loaded,149
-2026-01-05T19:08:43Z,payments,WARN,Retrying request,422
-2026-01-05T20:44:56Z,auth,INFO,Background job finished,144
-2026-01-05T21:46:40Z,db,INFO,Cache miss,61
-2026-01-05T22:00:13Z,search,ERROR,Upstream timeout,1158
-2026-01-05T22:04:21Z,api,INFO,User profile loaded,201
-2026-01-05T22:50:30Z,search,INFO,User profile loaded,198
-2026-01-06T00:26:52Z,db,INFO,Cache hit,74
-2026-01-06T01:04:03Z,api,INFO,Request completed,158
-2026-01-06T03:33:34Z,db,ERROR,JWT validation failed,924
-2026-01-06T03:45:20Z,db,ERROR,JWT validation failed,801
-2026-01-06T04:42:06Z,api,INFO,Cache hit,151
-2026-01-06T04:48:15Z,payments,INFO,Request completed,209
-2026-01-06T06:10:46Z,search,INFO,Background job finished,174
-2026-01-06T07:03:16Z,search,INFO,Feature flag evaluated,162
-2026-01-06T07:39:02Z,db,INFO,User profile loaded,75
-2026-01-06T07:46:34Z,db,WARN,Rate limit nearing threshold,320
-2026-01-06T08:01:22Z,payments,INFO,User profile loaded,208
-2026-01-06T08:58:46Z,auth,WARN,Rate limit nearing threshold,259
-2026-01-06T09:44:40Z,db,INFO,Request completed,92
-2026-01-06T11:03:43Z,auth,WARN,Upstream latency high,288
-2026-01-06T12:06:28Z,db,WARN,Upstream latency high,269
-2026-01-06T12:13:29Z,auth,INFO,Session refreshed,122
-2026-01-06T12:28:46Z,payments,INFO,Cache hit,187
-2026-01-06T12:35:08Z,payments,INFO,Cache hit,243
-2026-01-06T12:50:31Z,auth,INFO,Cache hit,205
-2026-01-06T13:08:36Z,notifications,INFO,Background job finished,100
-2026-01-06T13:29:14Z,notifications,INFO,Request completed,92
-2026-01-06T13:58:17Z,notifications,INFO,Feature flag evaluated,142
-2026-01-06T14:20:55Z,payments,INFO,Feature flag evaluated,214
-2026-01-06T14:25:41Z,api,INFO,User profile loaded,217
-2026-01-06T14:42:54Z,api,WARN,Rate limit nearing threshold,395
-2026-01-06T14:49:59Z,payments,WARN,Retrying request,481
-2026-01-06T14:55:49Z,notifications,INFO,Background job finished,84
-2026-01-06T15:41:24Z,api,WARN,Circuit breaker half-open,389
-2026-01-06T15:51:34Z,db,WARN,Upstream latency high,229
-2026-01-06T17:18:22Z,auth,INFO,Session refreshed,119
-2026-01-06T17:36:38Z,api,INFO,Request completed,126
-2026-01-06T18:29:04Z,api,ERROR,Out of memory (worker restart),1069
-2026-01-06T19:23:07Z,payments,INFO,Feature flag evaluated,217
-2026-01-06T19:39:03Z,notifications,ERROR,Payment provider error,484
-2026-01-06T19:40:20Z,api,INFO,Cache miss,130
-2026-01-06T20:58:51Z,api,INFO,Cache miss,134
-2026-01-06T21:26:03Z,auth,INFO,Cache miss,114
-2026-01-06T22:03:00Z,payments,INFO,Feature flag evaluated,245
-2026-01-06T22:10:00Z,auth,INFO,User profile loaded,116
-2026-01-06T22:29:58Z,db,INFO,User profile loaded,92
-2026-01-06T23:40:20Z,notifications,INFO,User profile loaded,129
-2026-01-07T02:54:36Z,payments,INFO,Request completed,184
-2026-01-07T04:05:22Z,db,INFO,Feature flag evaluated,44
-2026-01-07T05:02:02Z,auth,INFO,Request completed,168
-2026-01-07T06:45:05Z,auth,INFO,Feature flag evaluated,113
-2026-01-07T07:06:21Z,api,INFO,User profile loaded,131
-2026-01-07T07:06:42Z,auth,INFO,Cache miss,97
-2026-01-07T07:24:34Z,payments,INFO,Feature flag evaluated,199
-2026-01-07T07:34:30Z,api,INFO,Feature flag evaluated,157
-2026-01-07T07:37:42Z,auth,INFO,Cache hit,92
-2026-01-07T07:40:34Z,payments,INFO,Background job finished,223
-2026-01-07T07:56:51Z,db,INFO,Feature flag evaluated,73
-2026-01-07T08:41:31Z,db,INFO,Request completed,88
-2026-01-07T08:41:44Z,api,INFO,Feature flag evaluated,152
-2026-01-07T09:16:08Z,api,WARN,Upstream latency high,302
-2026-01-07T10:31:54Z,auth,INFO,Cache hit,110
-2026-01-07T10:57:24Z,auth,WARN,Retrying request,398
-2026-01-07T11:38:58Z,payments,INFO,Cache miss,198
-2026-01-07T12:03:35Z,auth,INFO,User profile loaded,94
-2026-01-07T13:03:22Z,search,INFO,Feature flag evaluated,177
-2026-01-07T13:05:19Z,api,INFO,User profile loaded,140
-2026-01-07T14:24:24Z,db,INFO,Cache hit,130
-2026-01-07T14:42:01Z,api,INFO,Feature flag evaluated,132
-2026-01-07T14:50:39Z,api,INFO,Cache miss,135
-2026-01-07T15:11:22Z,api,INFO,Cache hit,127
-2026-01-07T15:19:42Z,db,INFO,Session refreshed,99
-2026-01-07T15:30:51Z,auth,WARN,Upstream latency high,429
-2026-01-07T15:45:06Z,api,INFO,Request completed,140
-2026-01-07T16:38:16Z,api,INFO,User profile loaded,154
-2026-01-07T19:26:15Z,search,WARN,Slow query detected,393
-2026-01-07T19:46:19Z,api,INFO,Request completed,134
-2026-01-07T20:30:51Z,db,INFO,Session refreshed,87
-2026-01-07T20:47:28Z,notifications,INFO,Background job finished,116
-2026-01-07T22:51:35Z,auth,INFO,Request completed,132
-2026-01-08T00:46:56Z,payments,ERROR,Out of memory (worker restart),1038
-2026-01-08T00:59:23Z,notifications,WARN,Retrying request,246
-2026-01-08T01:26:11Z,payments,INFO,Background job finished,183
-2026-01-08T03:05:20Z,payments,INFO,Cache hit,213
-2026-01-08T04:55:43Z,payments,WARN,Queue depth rising,450
-2026-01-08T06:19:15Z,api,INFO,Cache miss,184
-2026-01-08T06:45:47Z,payments,INFO,Session refreshed,193
-2026-01-08T06:55:45Z,api,INFO,Cache hit,154
-2026-01-08T07:40:46Z,payments,WARN,Upstream latency high,443
-2026-01-08T08:13:48Z,notifications,INFO,Session refreshed,91
-2026-01-08T08:41:50Z,search,INFO,Request completed,220
-2026-01-08T08:51:43Z,auth,INFO,User profile loaded,112
-2026-01-08T08:58:54Z,api,INFO,Feature flag evaluated,154
-2026-01-08T09:04:12Z,api,INFO,Request completed,154
-2026-01-08T09:48:49Z,api,INFO,Cache miss,122
-2026-01-08T09:48:56Z,auth,INFO,Feature flag evaluated,118
-2026-01-08T10:12:10Z,search,WARN,Retrying request,281
-2026-01-08T10:17:06Z,api,INFO,Cache miss,137
-2026-01-08T10:29:49Z,payments,INFO,Request completed,225
-2026-01-08T10:31:49Z,payments,INFO,Session refreshed,186
-2026-01-08T10:35:16Z,db,INFO,User profile loaded,50
-2026-01-08T10:58:09Z,api,ERROR,Upstream timeout,1011
-2026-01-08T11:12:33Z,auth,INFO,User profile loaded,100
-2026-01-08T13:24:12Z,search,INFO,Background job finished,183
-2026-01-08T13:43:21Z,api,WARN,Circuit breaker half-open,272
-2026-01-08T13:59:24Z,api,INFO,User profile loaded,148
-2026-01-08T14:27:20Z,api,INFO,Session refreshed,199
-2026-01-08T14:52:43Z,payments,INFO,Session refreshed,198
-2026-01-08T15:01:00Z,db,INFO,Request completed,48
-2026-01-08T16:10:56Z,auth,WARN,Retrying request,424
-2026-01-08T17:50:47Z,api,INFO,Session refreshed,129
-2026-01-08T18:48:34Z,payments,INFO,Cache miss,209
-2026-01-08T18:58:40Z,payments,INFO,Feature flag evaluated,232
-2026-01-08T19:05:34Z,payments,INFO,Cache hit,206
-2026-01-08T19:47:46Z,api,INFO,Request completed,146
-2026-01-08T20:47:55Z,db,INFO,Request completed,86
-2026-01-08T21:35:26Z,search,INFO,Request completed,161
-2026-01-08T22:08:32Z,search,INFO,Request completed,170
-2026-01-08T22:54:23Z,api,INFO,Session refreshed,157
-2026-01-08T23:30:37Z,auth,INFO,Background job finished,107
-2026-01-08T23:52:48Z,search,INFO,User profile loaded,241
-2026-01-09T00:49:49Z,payments,INFO,Request completed,206
-2026-01-09T01:54:04Z,search,INFO,Feature flag evaluated,225
-2026-01-09T03:11:04Z,db,INFO,Request completed,63
-2026-01-09T03:29:28Z,api,INFO,Cache hit,150
-2026-01-09T07:35:18Z,api,INFO,Feature flag evaluated,158
-2026-01-09T08:05:46Z,auth,INFO,Background job finished,91
-2026-01-09T08:14:03Z,api,INFO,Cache miss,149
-2026-01-09T08:19:17Z,api,WARN,Circuit breaker half-open,325
-2026-01-09T08:20:53Z,payments,INFO,Feature flag evaluated,193
-2026-01-09T09:07:26Z,auth,INFO,Feature flag evaluated,100
-2026-01-09T10:10:53Z,notifications,INFO,User profile loaded,103
-2026-01-09T10:56:53Z,payments,INFO,Request completed,221
-2026-01-09T10:59:20Z,notifications,ERROR,Upstream timeout,748
-2026-01-09T11:43:13Z,payments,INFO,Background job finished,192
-2026-01-09T11:59:07Z,payments,INFO,Cache miss,275
-2026-01-09T12:03:13Z,notifications,INFO,Feature flag evaluated,77
-2026-01-09T12:31:26Z,payments,INFO,Feature flag evaluated,196
-2026-01-09T12:36:42Z,payments,INFO,Background job finished,260
-2026-01-09T12:38:57Z,db,INFO,Session refreshed,103
-2026-01-09T13:41:42Z,auth,INFO,Feature flag evaluated,121
-2026-01-09T15:37:37Z,api,INFO,User profile loaded,144
-2026-01-09T16:15:06Z,auth,INFO,Request completed,165
-2026-01-09T16:34:51Z,payments,INFO,Request completed,188
-2026-01-09T17:51:44Z,auth,INFO,Background job finished,166
-2026-01-09T18:05:59Z,payments,INFO,Cache miss,218
-2026-01-09T18:43:27Z,notifications,WARN,Upstream latency high,222
-2026-01-09T20:26:39Z,payments,WARN,Upstream latency high,342
-2026-01-09T20:54:05Z,api,INFO,Session refreshed,143
-2026-01-09T22:20:38Z,auth,INFO,Request completed,98
-2026-01-09T22:22:45Z,auth,INFO,Session refreshed,141
-2026-01-09T23:38:20Z,search,WARN,Rate limit nearing threshold,461
-2026-01-10T01:04:12Z,notifications,INFO,User profile loaded,75
-2026-01-10T01:43:56Z,notifications,ERROR,Upstream timeout,708
-2026-01-10T02:13:19Z,search,INFO,Feature flag evaluated,164
-2026-01-10T03:16:13Z,api,INFO,Feature flag evaluated,141
-2026-01-10T03:47:37Z,api,WARN,Retrying request,408
-2026-01-10T05:07:50Z,api,INFO,Request completed,161
-2026-01-10T05:21:18Z,auth,INFO,Session refreshed,106
-2026-01-10T05:57:28Z,auth,INFO,Session refreshed,136
-2026-01-10T06:20:38Z,search,INFO,Cache hit,223
-2026-01-10T08:02:43Z,notifications,INFO,Feature flag evaluated,99
-2026-01-10T08:03:53Z,auth,INFO,Background job finished,126
-2026-01-10T08:04:45Z,payments,INFO,Background job finished,189
-2026-01-10T08:38:02Z,payments,INFO,Session refreshed,272
-2026-01-10T08:42:55Z,auth,INFO,User profile loaded,138
-2026-01-10T09:47:44Z,auth,INFO,User profile loaded,155
-2026-01-10T09:51:39Z,api,INFO,Background job finished,200
-2026-01-10T10:00:22Z,auth,INFO,Background job finished,92
-2026-01-10T10:10:11Z,notifications,INFO,Feature flag evaluated,91
-2026-01-10T11:40:01Z,db,INFO,Cache hit,71
-2026-01-10T11:49:20Z,api,INFO,Background job finished,157
-2026-01-10T12:02:14Z,auth,INFO,Feature flag evaluated,116
-2026-01-10T12:02:59Z,api,WARN,Circuit breaker half-open,426
-2026-01-10T13:29:32Z,payments,INFO,User profile loaded,217
-2026-01-10T13:36:12Z,notifications,INFO,Background job finished,93
-2026-01-10T14:26:18Z,api,INFO,Cache miss,127
-2026-01-10T14:31:29Z,db,INFO,Feature flag evaluated,51
-2026-01-10T14:44:25Z,api,WARN,Retrying request,273
-2026-01-10T14:48:06Z,search,INFO,Request completed,171
-2026-01-10T15:07:08Z,search,INFO,Feature flag evaluated,210
-2026-01-10T15:07:14Z,payments,INFO,Feature flag evaluated,1888
-2026-01-10T15:20:38Z,db,INFO,Request completed,51
-2026-01-10T16:03:47Z,auth,INFO,Cache miss,133
-2026-01-10T16:18:49Z,search,INFO,Feature flag evaluated,176
-2026-01-10T20:20:13Z,payments,INFO,Background job finished,218
-2026-01-10T20:35:20Z,search,INFO,Request completed,199
-2026-01-10T22:16:02Z,api,INFO,User profile loaded,127
-2026-01-10T23:07:24Z,search,INFO,Request completed,204
-2026-01-10T23:31:55Z,api,INFO,Cache hit,121
-2026-01-10T23:57:30Z,payments,INFO,User profile loaded,204
-2026-01-11T03:04:57Z,api,INFO,Request completed,155
-2026-01-11T03:28:42Z,auth,INFO,Cache miss,100
-2026-01-11T03:44:27Z,payments,WARN,Upstream latency high,412
-2026-01-11T04:31:39Z,auth,ERROR,Upstream timeout,702
-2026-01-11T05:51:10Z,search,INFO,Session refreshed,178
-2026-01-11T07:22:55Z,payments,WARN,Retrying request,294
-2026-01-11T07:32:05Z,search,INFO,Background job finished,201
-2026-01-11T07:46:15Z,api,INFO,Background job finished,177
-2026-01-11T08:16:42Z,api,INFO,Background job finished,120
-2026-01-11T08:24:52Z,payments,INFO,User profile loaded,190
-2026-01-11T09:07:01Z,payments,INFO,Cache miss,202
-2026-01-11T10:19:54Z,api,INFO,Cache hit,135
-2026-01-11T10:57:33Z,auth,INFO,Request completed,148
-2026-01-11T11:00:44Z,auth,ERROR,Null reference in handler,409
-2026-01-11T12:12:09Z,auth,ERROR,503 Service unavailable,4057
-2026-01-11T12:34:08Z,payments,INFO,Request completed,191
-2026-01-11T12:48:36Z,payments,ERROR,JWT validation failed,1045
-2026-01-11T13:42:52Z,db,WARN,Upstream latency high,169
-2026-01-11T14:53:17Z,notifications,INFO,Session refreshed,96
-2026-01-11T15:04:21Z,api,INFO,Cache hit,129
-2026-01-11T15:44:16Z,payments,INFO,Request completed,206
-2026-01-11T16:14:10Z,auth,INFO,Request completed,143
-2026-01-11T16:28:39Z,auth,INFO,Cache miss,127
-2026-01-11T16:47:47Z,payments,INFO,Request completed,198
-2026-01-11T16:49:26Z,auth,INFO,User profile loaded,112
-2026-01-11T17:29:04Z,api,WARN,Rate limit nearing threshold,308
-2026-01-11T17:46:10Z,notifications,WARN,Circuit breaker half-open,289
-2026-01-11T20:35:46Z,notifications,INFO,Background job finished,134
-2026-01-11T21:32:54Z,auth,INFO,Request completed,90
-2026-01-11T22:03:30Z,notifications,INFO,Request completed,148
-2026-01-11T23:09:04Z,db,INFO,User profile loaded,99
-2026-01-12T02:18:38Z,auth,INFO,Session refreshed,115
-2026-01-12T03:22:20Z,api,WARN,Upstream latency high,299
-2026-01-12T03:34:18Z,notifications,WARN,Queue depth rising,404
-2026-01-12T04:06:32Z,api,INFO,Request completed,158
-2026-01-12T04:27:20Z,payments,INFO,Request completed,218
-2026-01-12T04:52:21Z,api,INFO,Background job finished,181
-2026-01-12T07:13:32Z,auth,INFO,User profile loaded,130
-2026-01-12T07:37:44Z,notifications,INFO,User profile loaded,89
-2026-01-12T08:43:52Z,notifications,INFO,Feature flag evaluated,99
-2026-01-12T08:51:35Z,payments,INFO,User profile loaded,188
-2026-01-12T09:02:58Z,api,WARN,Retrying request,295
-2026-01-12T09:16:25Z,api,INFO,Cache miss,133
-2026-01-12T09:25:17Z,db,INFO,Request completed,53
-2026-01-12T10:04:50Z,db,INFO,Cache miss,47
-2026-01-12T10:18:36Z,payments,INFO,Session refreshed,206
-2026-01-12T11:19:16Z,api,INFO,Cache hit,149
-2026-01-12T12:11:51Z,api,INFO,Background job finished,178
-2026-01-12T12:45:13Z,auth,INFO,User profile loaded,119
-2026-01-12T12:58:51Z,auth,ERROR,Out of memory (worker restart),1009
-2026-01-12T13:03:35Z,api,WARN,Retrying request,431
-2026-01-12T14:20:54Z,api,WARN,Retrying request,408
-2026-01-12T14:27:07Z,payments,INFO,Request completed,183
-2026-01-12T15:08:11Z,payments,WARN,Circuit breaker half-open,504
-2026-01-12T15:11:32Z,db,INFO,User profile loaded,123
-2026-01-12T16:35:40Z,api,INFO,User profile loaded,154
-2026-01-12T16:58:21Z,auth,INFO,Request completed,117
-2026-01-12T17:41:52Z,search,INFO,Request completed,183
-2026-01-12T17:44:07Z,payments,WARN,Retrying request,400
-2026-01-12T18:48:45Z,auth,INFO,Background job finished,117
-2026-01-12T19:02:58Z,search,INFO,Feature flag evaluated,169
-2026-01-12T19:26:50Z,notifications,INFO,Session refreshed,84
-2026-01-12T20:34:02Z,notifications,INFO,Request completed,93
-2026-01-12T20:39:50Z,auth,INFO,Feature flag evaluated,109
-2026-01-12T23:23:26Z,payments,WARN,Slow query detected,563
-2026-01-12T23:35:42Z,payments,INFO,Cache hit,223
-2026-01-12T23:58:33Z,api,INFO,Session refreshed,2939
-2026-01-13T00:16:38Z,notifications,INFO,Background job finished,96
-2026-01-13T01:19:29Z,payments,INFO,Session refreshed,193
-2026-01-13T03:06:51Z,notifications,INFO,Cache hit,100
-2026-01-13T04:57:35Z,search,ERROR,JWT validation failed,537
-2026-01-13T07:11:05Z,payments,INFO,User profile loaded,232
-2026-01-13T08:02:17Z,api,INFO,Feature flag evaluated,121
-2026-01-13T08:13:51Z,api,INFO,Cache hit,154
-2026-01-13T08:30:41Z,payments,INFO,Request completed,212
-2026-01-13T08:51:22Z,api,INFO,Cache hit,195
-2026-01-13T09:41:32Z,auth,ERROR,JWT validation failed,1301
-2026-01-13T10:05:24Z,api,WARN,Rate limit nearing threshold,421
-2026-01-13T10:33:26Z,search,INFO,Feature flag evaluated,178
-2026-01-13T11:03:17Z,notifications,INFO,Feature flag evaluated,70
-2026-01-13T11:08:04Z,api,INFO,Cache hit,126
-2026-01-13T11:36:04Z,api,INFO,Request completed,120
-2026-01-13T12:34:02Z,payments,INFO,User profile loaded,200
-2026-01-13T12:46:46Z,api,INFO,Request completed,153
-2026-01-13T12:59:47Z,search,WARN,Circuit breaker half-open,246
-2026-01-13T13:05:54Z,db,INFO,Background job finished,40
-2026-01-13T13:39:09Z,api,INFO,Request completed,226
-2026-01-13T13:47:56Z,db,INFO,Background job finished,75
-2026-01-13T14:30:45Z,payments,INFO,Request completed,250
-2026-01-13T14:42:51Z,search,INFO,Session refreshed,172
-2026-01-13T14:48:21Z,api,INFO,Cache hit,167
-2026-01-13T15:12:13Z,payments,INFO,Session refreshed,183
-2026-01-13T15:17:36Z,api,INFO,Cache miss,160
-2026-01-13T15:52:45Z,payments,INFO,Feature flag evaluated,188
-2026-01-13T15:53:08Z,payments,WARN,Queue depth rising,423
-2026-01-13T16:18:07Z,db,INFO,Background job finished,69
-2026-01-13T16:44:22Z,notifications,INFO,Cache miss,84
-2026-01-13T17:31:40Z,api,INFO,User profile loaded,123
-2026-01-13T17:35:32Z,api,INFO,Feature flag evaluated,136
-2026-01-13T18:39:43Z,payments,INFO,Background job finished,195
-2026-01-13T19:25:31Z,api,INFO,User profile loaded,183
-2026-01-13T20:00:54Z,api,INFO,Cache hit,198
-2026-01-13T22:02:57Z,auth,INFO,User profile loaded,114
-2026-01-13T23:50:02Z,auth,INFO,Cache hit,147
-2026-01-14T00:13:37Z,api,INFO,User profile loaded,133
-2026-01-14T00:18:13Z,auth,INFO,User profile loaded,132
-2026-01-14T00:44:39Z,db,INFO,Request completed,68
-2026-01-14T02:48:59Z,search,INFO,User profile loaded,213
-2026-01-14T03:04:12Z,search,INFO,Request completed,222
-2026-01-14T04:38:32Z,auth,INFO,Background job finished,90
-2026-01-14T07:05:37Z,payments,WARN,Retrying request,484
-2026-01-14T07:06:09Z,api,INFO,Request completed,120
-2026-01-14T07:14:23Z,api,INFO,Session refreshed,173
-2026-01-14T07:26:44Z,db,INFO,Cache miss,69
-2026-01-14T08:19:47Z,auth,WARN,Retrying request,267
-2026-01-14T09:13:23Z,auth,INFO,Feature flag evaluated,90
-2026-01-14T10:11:34Z,auth,INFO,Background job finished,139
-2026-01-14T10:45:05Z,db,INFO,Request completed,79
-2026-01-14T11:03:10Z,auth,ERROR,Database connection failed,732
-2026-01-14T11:29:52Z,payments,INFO,Request completed,258
-2026-01-14T11:31:48Z,db,INFO,Request completed,68
-2026-01-14T13:23:04Z,auth,WARN,Retrying request,245
-2026-01-14T14:27:19Z,db,INFO,Background job finished,95
-2026-01-14T16:23:00Z,db,INFO,Request completed,4062
-2026-01-14T17:14:14Z,api,INFO,Cache hit,192
-2026-01-14T17:29:26Z,notifications,INFO,User profile loaded,74
-2026-01-14T19:21:49Z,api,WARN,Upstream latency high,463
-2026-01-14T21:02:52Z,notifications,INFO,Background job finished,74
-2026-01-14T21:36:20Z,db,INFO,Feature flag evaluated,46
-2026-01-14T22:39:43Z,api,INFO,Cache miss,140
-2026-01-14T22:57:33Z,search,INFO,Background job finished,207
+2026-01-01T00:08:42Z,payments,INFO,Payment status reconciled,210
+2026-01-01T02:07:26Z,auth,INFO,Session refreshed,112
+2026-01-01T02:55:00Z,api,INFO,Response served from cache,142
+2026-01-01T04:14:32Z,payments,INFO,Payment webhook processed,190
+2026-01-01T04:43:53Z,notifications,INFO,Email notification queued,129
+2026-01-01T06:15:49Z,payments,INFO,Payment webhook processed,222
+2026-01-01T07:03:08Z,payments,INFO,Payment webhook processed,220
+2026-01-01T07:35:08Z,search,INFO,Index refresh checkpoint saved,169
+2026-01-01T07:48:39Z,api,INFO,Response served from cache,205
+2026-01-01T07:54:20Z,api,INFO,HTTP request completed,120
+2026-01-01T09:03:18Z,auth,INFO,Access token issued,111
+2026-01-01T09:06:53Z,payments,INFO,Payment authorization completed,201
+2026-01-01T09:11:49Z,api,INFO,API health check passed,126
+2026-01-01T09:30:45Z,search,INFO,Index refresh checkpoint saved,199
+2026-01-01T09:38:06Z,search,INFO,Search result cache hit,181
+2026-01-01T10:46:26Z,search,WARN,Indexing backlog rising,363
+2026-01-01T11:25:32Z,auth,INFO,Access token issued,99
+2026-01-01T11:29:58Z,api,INFO,Response served from cache,176
+2026-01-01T13:58:13Z,payments,INFO,Payment authorization completed,239
+2026-01-01T13:58:45Z,payments,INFO,Payment status reconciled,192
+2026-01-01T14:15:08Z,auth,INFO,Access token issued,120
+2026-01-01T15:07:43Z,notifications,INFO,Notification template rendered,89
+2026-01-01T15:18:16Z,search,INFO,Index refresh checkpoint saved,179
+2026-01-01T16:11:30Z,db,INFO,Connection returned to pool,40
+2026-01-01T16:15:14Z,api,INFO,API health check passed,133
+2026-01-01T19:04:32Z,api,INFO,HTTP request completed,182
+2026-01-01T19:12:51Z,payments,INFO,Payment webhook processed,192
+2026-01-01T20:47:31Z,notifications,WARN,Delivery queue depth rising,309
+2026-01-01T21:36:43Z,search,INFO,Index refresh checkpoint saved,177
+2026-01-01T21:50:25Z,db,INFO,Replica health check passed,41
+2026-01-01T22:04:56Z,auth,INFO,Session refreshed,104
+2026-01-01T22:54:28Z,db,INFO,Database query completed,67
+2026-01-02T03:13:32Z,auth,WARN,Token verification latency elevated,237
+2026-01-02T03:42:18Z,auth,INFO,Session refreshed,111
+2026-01-02T05:15:42Z,payments,INFO,Payment webhook processed,290
+2026-01-02T07:28:35Z,db,INFO,Database query completed,63
+2026-01-02T08:15:09Z,api,INFO,Response served from cache,121
+2026-01-02T08:36:40Z,api,INFO,Response served from cache,194
+2026-01-02T09:09:04Z,api,INFO,API health check passed,162
+2026-01-02T09:20:07Z,search,INFO,Index refresh checkpoint saved,160
+2026-01-02T09:24:03Z,api,INFO,HTTP request completed,156
+2026-01-02T09:25:30Z,db,INFO,Database query completed,64
+2026-01-02T09:27:46Z,search,INFO,Search query completed,196
+2026-01-02T09:36:15Z,db,WARN,Replica lag above threshold,321
+2026-01-02T10:27:17Z,payments,ERROR,Regional payment provider timeout,1592
+2026-01-02T10:34:46Z,db,WARN,Connection pool utilization high,283
+2026-01-02T10:35:56Z,payments,ERROR,Regional payment provider timeout,2485
+2026-01-02T11:04:36Z,payments,INFO,Payment webhook processed,456
+2026-01-02T11:09:36Z,payments,ERROR,Regional payment provider timeout,2389
+2026-01-02T11:20:10Z,payments,ERROR,Regional payment provider timeout,2618
+2026-01-02T11:24:35Z,payments,ERROR,Regional payment provider timeout,1940
+2026-01-02T12:07:33Z,payments,WARN,Regional payment provider latency elevated,1364
+2026-01-02T12:21:17Z,payments,WARN,Regional payment provider latency elevated,1349
+2026-01-02T12:47:16Z,payments,ERROR,Regional payment provider timeout,2122
+2026-01-02T13:18:57Z,db,INFO,Replica health check passed,91
+2026-01-02T14:32:08Z,payments,INFO,Payment webhook processed,224
+2026-01-02T15:01:08Z,api,INFO,HTTP request completed,123
+2026-01-02T15:59:16Z,payments,INFO,Payment webhook processed,188
+2026-01-02T16:02:59Z,payments,INFO,Payment authorization completed,252
+2026-01-02T17:34:11Z,auth,INFO,Access token issued,162
+2026-01-02T17:55:34Z,notifications,WARN,Email provider rate limit nearing,339
+2026-01-02T20:41:14Z,auth,ERROR,Identity provider timeout,485
+2026-01-02T21:54:23Z,api,INFO,HTTP request completed,156
+2026-01-03T02:02:19Z,search,INFO,Search query completed,176
+2026-01-03T03:04:43Z,notifications,INFO,Notification template rendered,155
+2026-01-03T04:32:37Z,auth,INFO,Access token issued,151
+2026-01-03T04:42:15Z,auth,INFO,Identity cache hit,102
+2026-01-03T05:58:37Z,db,INFO,Connection returned to pool,53
+2026-01-03T08:01:37Z,db,INFO,Replica health check passed,46
+2026-01-03T08:06:57Z,db,INFO,Database query completed,67
+2026-01-03T08:40:16Z,auth,INFO,Session refreshed,110
+2026-01-03T09:09:39Z,payments,INFO,Payment authorization completed,210
+2026-01-03T10:01:30Z,api,INFO,HTTP request completed,133
+2026-01-03T10:24:16Z,search,INFO,Search result cache hit,248
+2026-01-03T11:30:29Z,api,INFO,Response served from cache,144
+2026-01-03T11:32:59Z,search,INFO,Search result cache hit,219
+2026-01-03T11:57:06Z,db,INFO,Connection returned to pool,54
+2026-01-03T12:44:40Z,auth,INFO,Session refreshed,138
+2026-01-03T12:59:15Z,api,INFO,Response served from cache,155
+2026-01-03T13:25:04Z,api,INFO,HTTP request completed,137
+2026-01-03T13:37:35Z,db,INFO,Connection returned to pool,75
+2026-01-03T15:14:54Z,api,WARN,Request queue utilization high,281
+2026-01-03T15:22:07Z,api,INFO,API health check passed,162
+2026-01-03T15:23:23Z,auth,INFO,Access token issued,129
+2026-01-03T15:38:51Z,api,INFO,Response served from cache,134
+2026-01-03T16:05:02Z,search,WARN,Search replica retry scheduled,429
+2026-01-03T16:14:55Z,payments,INFO,Payment status reconciled,250
+2026-01-03T16:30:15Z,notifications,INFO,Notification template rendered,97
+2026-01-03T17:27:38Z,api,INFO,Response served from cache,224
+2026-01-03T18:19:52Z,payments,INFO,Payment authorization completed,193
+2026-01-03T18:45:51Z,auth,INFO,Access token issued,114
+2026-01-03T19:17:49Z,notifications,INFO,Notification template rendered,70
+2026-01-03T20:28:05Z,notifications,ERROR,Notification worker exhausted retries,973
+2026-01-03T21:02:53Z,auth,INFO,Identity cache hit,178
+2026-01-03T21:54:55Z,auth,INFO,Identity cache hit,96
+2026-01-03T22:51:12Z,api,INFO,API health check passed,246
+2026-01-03T23:34:01Z,search,INFO,Index refresh checkpoint saved,216
+2026-01-04T00:30:00Z,auth,INFO,Access token issued,91
+2026-01-04T01:51:49Z,auth,INFO,Session refreshed,157
+2026-01-04T03:12:08Z,payments,INFO,Payment authorization completed,242
+2026-01-04T03:26:21Z,db,INFO,Database query completed,59
+2026-01-04T04:06:08Z,payments,INFO,Payment status reconciled,206
+2026-01-04T04:49:19Z,notifications,INFO,Email notification queued,120
+2026-01-04T05:48:26Z,payments,INFO,Payment authorization completed,186
+2026-01-04T07:34:17Z,search,INFO,Search query completed,186
+2026-01-04T07:54:40Z,search,WARN,Search replica retry scheduled,283
+2026-01-04T07:58:29Z,auth,WARN,Token verification latency elevated,281
+2026-01-04T08:08:42Z,payments,INFO,Payment authorization completed,3996
+2026-01-04T08:22:03Z,api,INFO,API health check passed,2075
+2026-01-04T08:45:18Z,payments,WARN,Payment provider latency elevated,531
+2026-01-04T08:45:27Z,api,WARN,Client rate limit nearing threshold,424
+2026-01-04T09:09:50Z,search,INFO,Search query completed,209
+2026-01-04T10:33:57Z,auth,INFO,Access token issued,123
+2026-01-04T11:27:24Z,api,INFO,Response served from cache,121
+2026-01-04T11:37:38Z,payments,INFO,Payment status reconciled,201
+2026-01-04T12:09:17Z,api,WARN,Upstream response latency elevated,221
+2026-01-04T13:09:10Z,auth,INFO,Access token issued,138
+2026-01-04T13:46:54Z,search,WARN,Search query latency elevated,370
+2026-01-04T13:51:24Z,auth,WARN,Token verification latency elevated,400
+2026-01-04T13:53:24Z,notifications,INFO,Notification template rendered,108
+2026-01-04T14:16:52Z,auth,INFO,Access token issued,101
+2026-01-04T14:39:16Z,payments,INFO,Payment webhook processed,189
+2026-01-04T15:49:41Z,api,INFO,HTTP request completed,133
+2026-01-04T15:58:17Z,notifications,INFO,Email notification queued,95
+2026-01-04T16:19:26Z,payments,INFO,Payment status reconciled,208
+2026-01-04T16:27:06Z,payments,INFO,Payment authorization completed,237
+2026-01-04T16:28:33Z,db,INFO,Connection returned to pool,41
+2026-01-04T16:31:38Z,payments,INFO,Payment authorization completed,181
+2026-01-04T17:48:16Z,auth,INFO,Session refreshed,90
+2026-01-04T17:53:33Z,search,INFO,Search result cache hit,172
+2026-01-04T18:48:01Z,search,INFO,Index refresh checkpoint saved,207
+2026-01-04T18:51:56Z,search,INFO,Search query completed,177
+2026-01-04T19:04:28Z,notifications,WARN,Delivery queue depth rising,2390
+2026-01-04T19:21:19Z,search,INFO,Search query completed,179
+2026-01-04T19:21:35Z,payments,INFO,Payment webhook processed,191
+2026-01-04T20:17:17Z,auth,INFO,Identity cache hit,112
+2026-01-04T22:01:47Z,api,INFO,API health check passed,127
+2026-01-05T02:03:35Z,auth,WARN,Identity provider retry scheduled,368
+2026-01-05T02:37:56Z,payments,INFO,Payment webhook processed,221
+2026-01-05T03:58:36Z,notifications,INFO,Notification template rendered,80
+2026-01-05T07:03:44Z,payments,INFO,Payment webhook processed,203
+2026-01-05T07:24:54Z,db,INFO,Replica health check passed,72
+2026-01-05T07:33:48Z,api,INFO,API health check passed,148
+2026-01-05T08:09:04Z,api,INFO,Response served from cache,135
+2026-01-05T08:19:49Z,auth,INFO,Identity cache hit,135
+2026-01-05T08:48:39Z,db,ERROR,Read replica unavailable,288
+2026-01-05T09:10:46Z,search,INFO,Search result cache hit,174
+2026-01-05T09:26:11Z,api,INFO,Response served from cache,206
+2026-01-05T10:44:25Z,payments,WARN,Webhook delivery delayed,365
+2026-01-05T11:29:00Z,search,WARN,Indexing backlog rising,435
+2026-01-05T11:53:23Z,api,INFO,API health check passed,130
+2026-01-05T12:33:38Z,db,INFO,Replica health check passed,76
+2026-01-05T12:42:26Z,auth,INFO,Identity cache hit,119
+2026-01-05T14:05:32Z,payments,INFO,Payment webhook processed,217
+2026-01-05T15:32:01Z,notifications,ERROR,Push gateway rejected request,324
+2026-01-05T15:56:23Z,auth,INFO,Identity cache hit,158
+2026-01-05T16:25:08Z,payments,INFO,Payment webhook processed,205
+2026-01-05T17:39:03Z,db,INFO,Database query completed,48
+2026-01-05T17:52:23Z,db,INFO,Replica health check passed,66
+2026-01-05T19:27:19Z,db,INFO,Replica health check passed,78
+2026-01-05T19:54:44Z,payments,ERROR,Payment provider timeout,526
+2026-01-05T21:30:51Z,auth,WARN,Token verification latency elevated,306
+2026-01-05T23:18:01Z,search,INFO,Search result cache hit,239
+2026-01-06T05:19:07Z,api,INFO,API health check passed,161
+2026-01-06T07:40:54Z,auth,INFO,Access token issued,100
+2026-01-06T07:45:15Z,search,INFO,Search query completed,173
+2026-01-06T08:08:32Z,db,INFO,Database query completed,82
+2026-01-06T08:23:42Z,search,INFO,Search result cache hit,237
+2026-01-06T09:34:05Z,api,INFO,API health check passed,143
+2026-01-06T09:46:36Z,api,INFO,API health check passed,125
+2026-01-06T10:38:33Z,auth,INFO,Session refreshed,140
+2026-01-06T11:29:55Z,payments,INFO,Payment webhook processed,213
+2026-01-06T11:31:18Z,payments,INFO,Payment webhook processed,231
+2026-01-06T11:36:57Z,search,INFO,Search result cache hit,176
+2026-01-06T11:42:58Z,auth,INFO,Access token issued,177
+2026-01-06T11:57:41Z,payments,INFO,Payment authorization completed,194
+2026-01-06T14:11:20Z,payments,INFO,Payment status reconciled,199
+2026-01-06T14:39:38Z,auth,INFO,Access token issued,104
+2026-01-06T15:03:47Z,db,INFO,Connection returned to pool,113
+2026-01-06T16:10:58Z,search,INFO,Search query completed,161
+2026-01-06T16:12:38Z,db,INFO,Database query completed,101
+2026-01-06T16:33:12Z,api,INFO,API health check passed,120
+2026-01-06T16:55:22Z,search,INFO,Search result cache hit,178
+2026-01-06T18:04:41Z,notifications,WARN,Retrying notification delivery,330
+2026-01-06T18:11:07Z,auth,ERROR,Identity provider timeout,1153
+2026-01-06T20:48:03Z,api,INFO,Response served from cache,2291
+2026-01-06T21:01:45Z,payments,WARN,Webhook delivery delayed,343
+2026-01-06T21:32:25Z,search,INFO,Search result cache hit,216
+2026-01-07T01:34:22Z,payments,INFO,Payment authorization completed,182
+2026-01-07T05:39:12Z,api,WARN,Request queue utilization high,264
+2026-01-07T06:16:46Z,auth,INFO,Access token issued,119
+2026-01-07T06:40:14Z,api,INFO,HTTP request completed,158
+2026-01-07T07:40:34Z,payments,INFO,Payment authorization completed,214
+2026-01-07T08:55:57Z,api,INFO,API health check passed,124
+2026-01-07T09:08:15Z,auth,INFO,Identity cache hit,141
+2026-01-07T09:46:54Z,payments,WARN,Payment provider latency elevated,375
+2026-01-07T09:53:26Z,api,INFO,HTTP request completed,120
+2026-01-07T10:28:02Z,auth,INFO,Access token issued,120
+2026-01-07T10:39:24Z,notifications,INFO,Push notification delivered,137
+2026-01-07T10:50:20Z,auth,ERROR,JWT signature validation failed,691
+2026-01-07T10:57:24Z,auth,WARN,Login rate limit nearing threshold,382
+2026-01-07T11:04:16Z,payments,INFO,Payment webhook processed,183
+2026-01-07T11:21:43Z,db,INFO,Replica health check passed,58
+2026-01-07T12:15:44Z,api,INFO,HTTP request completed,164
+2026-01-07T13:15:31Z,db,WARN,Connection pool utilization high,217
+2026-01-07T13:50:23Z,payments,INFO,Payment webhook processed,199
+2026-01-07T13:53:31Z,api,INFO,Response served from cache,183
+2026-01-07T13:54:17Z,db,WARN,Slow query detected,265
+2026-01-07T14:00:32Z,search,ERROR,Index shard unavailable,698
+2026-01-07T14:59:56Z,notifications,INFO,Email notification queued,78
+2026-01-07T15:05:40Z,db,INFO,Connection returned to pool,54
+2026-01-07T15:08:15Z,auth,WARN,Login rate limit nearing threshold,270
+2026-01-07T15:15:30Z,auth,INFO,Session refreshed,97
+2026-01-07T16:48:33Z,notifications,WARN,Retrying notification delivery,374
+2026-01-07T16:57:24Z,auth,INFO,Identity cache hit,180
+2026-01-07T17:04:28Z,search,INFO,Search result cache hit,248
+2026-01-07T17:39:01Z,notifications,WARN,Retrying notification delivery,294
+2026-01-07T17:52:36Z,api,ERROR,Dependency returned 503,542
+2026-01-07T18:02:00Z,auth,INFO,Session refreshed,112
+2026-01-07T18:31:17Z,auth,INFO,Identity cache hit,135
+2026-01-07T19:02:40Z,auth,INFO,Identity cache hit,160
+2026-01-07T19:29:16Z,api,INFO,API health check passed,181
+2026-01-07T19:53:26Z,db,INFO,Replica health check passed,77
+2026-01-07T20:30:03Z,api,INFO,Response served from cache,140
+2026-01-07T21:10:38Z,notifications,INFO,Email notification queued,122
+2026-01-07T22:18:47Z,payments,INFO,Payment webhook processed,187
+2026-01-07T22:21:50Z,auth,INFO,Session refreshed,121
+2026-01-07T22:24:00Z,api,INFO,Response served from cache,150
+2026-01-07T22:32:41Z,db,INFO,Connection returned to pool,53
+2026-01-07T22:35:33Z,api,INFO,HTTP request completed,155
+2026-01-07T23:41:23Z,auth,INFO,Access token issued,90
+2026-01-07T23:47:53Z,auth,INFO,Identity cache hit,151
+2026-01-08T00:09:26Z,notifications,ERROR,Email provider unavailable,809
+2026-01-08T00:13:15Z,payments,INFO,Payment authorization completed,233
+2026-01-08T01:21:42Z,payments,INFO,Payment authorization completed,207
+2026-01-08T03:24:05Z,payments,INFO,Payment status reconciled,202
+2026-01-08T03:53:05Z,api,INFO,API health check passed,219
+2026-01-08T04:49:08Z,api,INFO,HTTP request completed,138
+2026-01-08T05:23:40Z,notifications,INFO,Email notification queued,75
+2026-01-08T07:01:13Z,api,INFO,HTTP request completed,159
+2026-01-08T07:08:09Z,api,WARN,Upstream response latency elevated,354
+2026-01-08T07:16:24Z,auth,INFO,Session refreshed,99
+2026-01-08T09:11:20Z,notifications,INFO,Push notification delivered,113
+2026-01-08T09:19:02Z,notifications,INFO,Push notification delivered,84
+2026-01-08T09:21:17Z,api,INFO,API health check passed,183
+2026-01-08T09:59:04Z,payments,INFO,Payment webhook processed,265
+2026-01-08T10:36:32Z,auth,INFO,Access token issued,126
+2026-01-08T11:09:41Z,payments,WARN,Payment provider latency elevated,469
+2026-01-08T11:12:33Z,auth,INFO,Identity cache hit,91
+2026-01-08T12:03:28Z,api,WARN,Request queue utilization high,381
+2026-01-08T12:05:36Z,api,INFO,Response served from cache,147
+2026-01-08T12:12:48Z,search,INFO,Index refresh checkpoint saved,223
+2026-01-08T12:26:07Z,db,ERROR,Primary database connection failed,1154
+2026-01-08T12:27:12Z,search,WARN,Search replica retry scheduled,336
+2026-01-08T12:37:32Z,api,INFO,API health check passed,124
+2026-01-08T13:15:30Z,auth,INFO,Identity cache hit,140
+2026-01-08T13:15:44Z,db,INFO,Connection returned to pool,44
+2026-01-08T13:19:02Z,api,ERROR,Upstream gateway timeout,340
+2026-01-08T14:17:02Z,payments,INFO,Payment status reconciled,254
+2026-01-08T14:26:17Z,api,INFO,Response served from cache,149
+2026-01-08T15:01:03Z,search,WARN,Indexing backlog rising,371
+2026-01-08T17:36:41Z,payments,INFO,Payment status reconciled,205
+2026-01-08T18:05:57Z,notifications,INFO,Email notification queued,112
+2026-01-08T18:48:34Z,payments,INFO,Payment status reconciled,202
+2026-01-08T19:30:03Z,notifications,INFO,Notification template rendered,145
+2026-01-08T21:44:38Z,payments,INFO,Payment authorization completed,184
+2026-01-08T22:41:47Z,db,INFO,Connection returned to pool,71
+2026-01-08T23:15:29Z,db,INFO,Replica health check passed,100
+2026-01-08T23:49:12Z,payments,INFO,Payment authorization completed,211
+2026-01-09T00:04:56Z,payments,INFO,Payment authorization completed,216
+2026-01-09T02:20:03Z,api,INFO,API health check passed,175
+2026-01-09T04:38:50Z,auth,INFO,Session refreshed,149
+2026-01-09T04:42:27Z,db,INFO,Connection returned to pool,51
+2026-01-09T05:24:09Z,api,INFO,Response served from cache,120
+2026-01-09T08:12:50Z,api,INFO,HTTP request completed,145
+2026-01-09T08:14:00Z,api,INFO,HTTP request completed,134
+2026-01-09T08:20:42Z,db,INFO,Database query completed,87
+2026-01-09T08:26:29Z,auth,INFO,Identity cache hit,132
+2026-01-09T09:34:10Z,auth,INFO,Session refreshed,178
+2026-01-09T10:01:07Z,notifications,INFO,Notification template rendered,100
+2026-01-09T10:06:02Z,search,INFO,Index refresh checkpoint saved,250
+2026-01-09T10:41:11Z,notifications,INFO,Notification template rendered,95
+2026-01-09T10:50:21Z,notifications,INFO,Notification template rendered,115
+2026-01-09T11:28:37Z,auth,WARN,Token verification latency elevated,220
+2026-01-09T12:05:38Z,api,INFO,Response served from cache,158
+2026-01-09T12:23:12Z,auth,INFO,Identity cache hit,122
+2026-01-09T12:35:15Z,search,INFO,Search query completed,187
+2026-01-09T12:38:57Z,db,INFO,Replica health check passed,55
+2026-01-09T12:51:19Z,payments,INFO,Payment authorization completed,210
+2026-01-09T12:56:19Z,db,INFO,Connection returned to pool,65
+2026-01-09T13:56:08Z,notifications,INFO,Email notification queued,82
+2026-01-09T15:00:00Z,payments,INFO,Payment status reconciled,195
+2026-01-09T15:31:09Z,api,INFO,HTTP request completed,166
+2026-01-09T16:24:29Z,search,WARN,Search replica retry scheduled,461
+2026-01-09T16:39:51Z,payments,INFO,Payment webhook processed,206
+2026-01-09T16:46:34Z,auth,INFO,Access token issued,184
+2026-01-09T17:58:30Z,notifications,INFO,Email notification queued,90
+2026-01-09T19:04:23Z,payments,INFO,Payment webhook processed,201
+2026-01-09T20:15:36Z,db,INFO,Database query completed,75
+2026-01-09T20:48:34Z,notifications,WARN,Delivery queue depth rising,357
+2026-01-09T21:05:21Z,db,INFO,Connection returned to pool,74
+2026-01-09T22:04:33Z,db,INFO,Replica health check passed,51
+2026-01-09T22:44:11Z,api,INFO,Response served from cache,137
+2026-01-09T22:59:33Z,search,INFO,Search result cache hit,251
+2026-01-09T23:01:32Z,notifications,INFO,Email notification queued,84
+2026-01-09T23:03:33Z,api,WARN,Client rate limit nearing threshold,267
+2026-01-10T01:05:26Z,payments,INFO,Payment status reconciled,204
+2026-01-10T02:42:47Z,payments,INFO,Payment authorization completed,202
+2026-01-10T02:48:44Z,payments,INFO,Payment status reconciled,194
+2026-01-10T03:27:22Z,payments,INFO,Payment authorization completed,193
+2026-01-10T03:56:00Z,search,WARN,Search query latency elevated,339
+2026-01-10T05:32:14Z,search,INFO,Index refresh checkpoint saved,176
+2026-01-10T06:20:38Z,search,INFO,Search result cache hit,191
+2026-01-10T07:46:12Z,auth,INFO,Identity cache hit,181
+2026-01-10T08:04:40Z,notifications,WARN,Email provider rate limit nearing,381
+2026-01-10T08:09:18Z,auth,INFO,Access token issued,113
+2026-01-10T09:15:45Z,api,INFO,Response served from cache,168
+2026-01-10T09:51:39Z,api,INFO,Response served from cache,200
+2026-01-10T10:40:23Z,api,INFO,HTTP request completed,190
+2026-01-10T10:51:35Z,api,WARN,Upstream response latency elevated,441
+2026-01-10T11:13:59Z,db,INFO,Database query completed,47
+2026-01-10T11:34:43Z,api,INFO,HTTP request completed,134
+2026-01-10T11:46:25Z,db,INFO,Connection returned to pool,51
+2026-01-10T11:52:31Z,search,INFO,Search result cache hit,189
+2026-01-10T12:32:49Z,search,INFO,Index refresh checkpoint saved,210
+2026-01-10T12:50:30Z,notifications,INFO,Email notification queued,85
+2026-01-10T13:04:50Z,payments,INFO,Payment authorization completed,219
+2026-01-10T13:23:35Z,auth,INFO,Session refreshed,92
+2026-01-10T13:27:08Z,api,INFO,HTTP request completed,142
+2026-01-10T14:34:46Z,api,INFO,Response served from cache,213
+2026-01-10T14:47:45Z,api,INFO,Response served from cache,126
+2026-01-10T14:56:32Z,db,INFO,Connection returned to pool,76
+2026-01-10T15:11:10Z,api,INFO,Response served from cache,141
+2026-01-10T15:17:35Z,api,WARN,Upstream response latency elevated,285
+2026-01-10T15:28:22Z,payments,INFO,Payment authorization completed,228
+2026-01-10T15:39:09Z,api,INFO,HTTP request completed,131
+2026-01-10T15:39:20Z,notifications,INFO,Email notification queued,111
+2026-01-10T15:47:32Z,auth,INFO,Session refreshed,112
+2026-01-10T16:36:58Z,auth,INFO,Identity cache hit,103
+2026-01-10T17:22:34Z,auth,INFO,Identity cache hit,93
+2026-01-11T00:25:26Z,api,INFO,HTTP request completed,126
+2026-01-11T00:26:42Z,api,INFO,API health check passed,123
+2026-01-11T05:56:08Z,auth,WARN,Identity provider retry scheduled,354
+2026-01-11T06:22:19Z,search,INFO,Search result cache hit,203
+2026-01-11T07:24:20Z,auth,INFO,Session refreshed,153
+2026-01-11T08:11:00Z,payments,INFO,Payment webhook processed,213
+2026-01-11T08:36:44Z,api,INFO,Response served from cache,156
+2026-01-11T10:01:31Z,notifications,INFO,Email notification queued,88
+2026-01-11T10:19:54Z,api,INFO,API health check passed,135
+2026-01-11T10:57:41Z,auth,INFO,Access token issued,114
+2026-01-11T11:28:04Z,payments,WARN,Payment provider latency elevated,376
+2026-01-11T11:32:51Z,payments,INFO,Payment authorization completed,214
+2026-01-11T11:39:08Z,payments,INFO,Payment authorization completed,199
+2026-01-11T12:16:08Z,api,INFO,Response served from cache,120
+2026-01-11T13:04:28Z,search,ERROR,Index shard unavailable,643
+2026-01-11T13:08:56Z,notifications,INFO,Notification template rendered,113
+2026-01-11T13:35:38Z,auth,INFO,Session refreshed,138
+2026-01-11T13:41:19Z,db,INFO,Replica health check passed,76
+2026-01-11T14:08:06Z,auth,INFO,Session refreshed,122
+2026-01-11T14:57:38Z,auth,WARN,Token verification latency elevated,185
+2026-01-11T15:14:43Z,auth,INFO,Access token issued,91
+2026-01-11T15:19:50Z,auth,INFO,Identity cache hit,109
+2026-01-11T15:50:33Z,auth,INFO,Access token issued,110
+2026-01-11T16:11:39Z,db,INFO,Database query completed,69
+2026-01-11T17:29:04Z,api,WARN,Client rate limit nearing threshold,3967
+2026-01-11T17:36:54Z,search,WARN,Search query latency elevated,427
+2026-01-11T17:46:43Z,db,ERROR,Primary database unavailable in failover,1600
+2026-01-11T17:59:47Z,auth,INFO,Access token issued,110
+2026-01-11T18:08:48Z,db,ERROR,Primary database unavailable in failover,2741
+2026-01-11T18:17:01Z,auth,INFO,Session refreshed,122
+2026-01-11T20:35:46Z,payments,INFO,Payment authorization completed,216
+2026-01-11T21:05:37Z,db,INFO,Database query completed,264
+2026-01-11T21:18:23Z,db,INFO,Database query completed,370
+2026-01-11T21:44:34Z,db,INFO,Connection returned to pool,341
+2026-01-11T21:58:30Z,db,WARN,Database connection pool saturation,3257
+2026-01-11T23:31:02Z,api,ERROR,Request handler failed,825
+2026-01-12T00:31:22Z,db,INFO,Replica health check passed,42
+2026-01-12T00:56:48Z,db,INFO,Connection returned to pool,74
+2026-01-12T01:54:42Z,notifications,INFO,Notification template rendered,107
+2026-01-12T02:30:10Z,db,INFO,Connection returned to pool,107
+2026-01-12T03:22:20Z,api,WARN,Upstream response latency elevated,411
+2026-01-12T03:42:14Z,payments,ERROR,Payment provider timeout,1320
+2026-01-12T06:19:21Z,auth,INFO,Session refreshed,100
+2026-01-12T08:28:39Z,auth,INFO,Session refreshed,92
+2026-01-12T08:35:53Z,payments,INFO,Payment status reconciled,204
+2026-01-12T08:42:37Z,auth,INFO,Session refreshed,107
+2026-01-12T09:52:04Z,db,INFO,Replica health check passed,60
+2026-01-12T10:41:03Z,payments,INFO,Payment authorization completed,199
+2026-01-12T11:06:48Z,payments,INFO,Payment status reconciled,229
+2026-01-12T11:47:57Z,notifications,INFO,Push notification delivered,90
+2026-01-12T11:52:20Z,auth,INFO,Identity cache hit,126
+2026-01-12T12:07:59Z,auth,INFO,Identity cache hit,148
+2026-01-12T12:53:20Z,search,INFO,Search result cache hit,163
+2026-01-12T13:22:44Z,auth,INFO,Access token issued,108
+2026-01-12T13:36:14Z,search,INFO,Search result cache hit,220
+2026-01-12T13:37:44Z,db,INFO,Connection returned to pool,98
+2026-01-12T13:41:17Z,payments,WARN,Retrying idempotent authorization,483
+2026-01-12T14:05:57Z,db,INFO,Connection returned to pool,68
+2026-01-12T14:15:03Z,payments,INFO,Payment webhook processed,181
+2026-01-12T14:18:02Z,api,INFO,API health check passed,127
+2026-01-12T15:06:49Z,db,INFO,Database query completed,47
+2026-01-12T15:08:11Z,payments,WARN,Webhook delivery delayed,504
+2026-01-12T15:14:27Z,payments,INFO,Payment authorization completed,183
+2026-01-12T17:29:02Z,auth,INFO,Access token issued,93
+2026-01-12T17:51:57Z,api,INFO,Response served from cache,148
+2026-01-12T18:17:10Z,payments,INFO,Payment authorization completed,220
+2026-01-12T18:48:15Z,auth,ERROR,Identity provider timeout,569
+2026-01-12T18:48:45Z,auth,INFO,Access token issued,2498
+2026-01-12T19:15:47Z,api,INFO,API health check passed,126
+2026-01-12T19:22:39Z,search,INFO,Search query completed,197
+2026-01-12T19:40:01Z,db,INFO,Replica health check passed,54
+2026-01-12T20:39:50Z,auth,INFO,Access token issued,109
+2026-01-12T21:02:09Z,search,INFO,Index refresh checkpoint saved,204
+2026-01-12T22:40:42Z,payments,WARN,Webhook delivery delayed,362
+2026-01-12T23:52:12Z,auth,INFO,Identity cache hit,158
+2026-01-13T03:27:05Z,auth,ERROR,JWT signature validation failed,849
+2026-01-13T07:20:25Z,db,INFO,Replica health check passed,48
+2026-01-13T07:28:57Z,db,WARN,Slow query detected,261
+2026-01-13T07:48:10Z,db,INFO,Database query completed,69
+2026-01-13T08:10:19Z,db,INFO,Database query completed,40
+2026-01-13T08:13:16Z,payments,INFO,Payment authorization completed,202
+2026-01-13T08:25:21Z,search,INFO,Search query completed,188
+2026-01-13T08:28:13Z,search,INFO,Search result cache hit,166
+2026-01-13T09:03:22Z,db,INFO,Connection returned to pool,56
+2026-01-13T09:29:34Z,payments,INFO,Payment status reconciled,226
+2026-01-13T10:05:24Z,api,WARN,Client rate limit nearing threshold,301
+2026-01-13T10:33:26Z,search,INFO,Index refresh checkpoint saved,179
+2026-01-13T11:07:59Z,db,INFO,Replica health check passed,74
+2026-01-13T11:11:11Z,payments,INFO,Payment authorization completed,216
+2026-01-13T11:16:34Z,api,INFO,API health check passed,134
+2026-01-13T11:31:08Z,payments,INFO,Payment webhook processed,193
+2026-01-13T12:26:34Z,db,INFO,Database query completed,83
+2026-01-13T12:34:02Z,payments,INFO,Payment webhook processed,210
+2026-01-13T12:47:49Z,payments,INFO,Payment authorization completed,185
+2026-01-13T12:53:12Z,auth,WARN,Login rate limit nearing threshold,317
+2026-01-13T13:04:53Z,payments,INFO,Payment authorization completed,191
+2026-01-13T13:18:06Z,notifications,INFO,Push notification delivered,72
+2026-01-13T13:40:51Z,db,INFO,Connection returned to pool,47
+2026-01-13T13:41:13Z,payments,INFO,Payment webhook processed,188
+2026-01-13T13:46:29Z,search,INFO,Search result cache hit,167
+2026-01-13T14:29:48Z,db,INFO,Replica health check passed,98
+2026-01-13T16:02:28Z,search,INFO,Search query completed,181
+2026-01-13T16:18:07Z,db,INFO,Connection returned to pool,43
+2026-01-13T16:42:05Z,auth,INFO,Identity cache hit,132
+2026-01-13T16:50:44Z,payments,INFO,Payment status reconciled,220
+2026-01-13T17:07:00Z,api,INFO,HTTP request completed,170
+2026-01-13T17:44:18Z,payments,INFO,Payment status reconciled,231
+2026-01-13T18:18:02Z,auth,INFO,Session refreshed,141
+2026-01-13T18:56:26Z,api,INFO,Response served from cache,128
+2026-01-13T19:10:26Z,db,INFO,Connection returned to pool,87
+2026-01-13T23:20:35Z,api,INFO,HTTP request completed,170
+2026-01-13T23:31:14Z,auth,WARN,Login rate limit nearing threshold,287
+2026-01-14T00:18:30Z,db,INFO,Database query completed,41
+2026-01-14T00:21:43Z,api,INFO,Response served from cache,132
+2026-01-14T01:01:20Z,api,INFO,Response served from cache,138
+2026-01-14T02:02:29Z,api,INFO,HTTP request completed,124
+2026-01-14T02:07:33Z,api,INFO,Response served from cache,214
+2026-01-14T03:49:17Z,auth,INFO,Identity cache hit,147
+2026-01-14T04:55:07Z,payments,INFO,Payment webhook processed,211
+2026-01-14T05:12:12Z,db,INFO,Database query completed,63
+2026-01-14T05:27:37Z,auth,INFO,Session refreshed,90
+2026-01-14T06:09:45Z,auth,INFO,Identity cache hit,107
+2026-01-14T06:24:42Z,payments,WARN,Webhook delivery delayed,445
+2026-01-14T07:06:09Z,api,INFO,HTTP request completed,123
+2026-01-14T07:46:38Z,db,INFO,Connection returned to pool,41
+2026-01-14T08:09:01Z,api,WARN,Client rate limit nearing threshold,256
+2026-01-14T08:29:28Z,notifications,INFO,Push notification delivered,89
+2026-01-14T08:40:45Z,payments,INFO,Payment webhook processed,227
+2026-01-14T08:59:05Z,auth,INFO,Session refreshed,106
+2026-01-14T09:19:56Z,api,INFO,HTTP request completed,144
+2026-01-14T09:51:43Z,auth,INFO,Access token issued,94
+2026-01-14T09:56:07Z,payments,INFO,Payment status reconciled,218
+2026-01-14T10:59:06Z,payments,INFO,Payment authorization completed,203
+2026-01-14T11:26:46Z,api,INFO,API health check passed,123
+2026-01-14T11:39:55Z,payments,INFO,Payment authorization completed,182
+2026-01-14T12:25:40Z,search,INFO,Search query completed,197
+2026-01-14T12:26:41Z,notifications,INFO,Email notification queued,74
+2026-01-14T12:35:22Z,auth,WARN,Login rate limit nearing threshold,399
+2026-01-14T12:40:20Z,db,INFO,Replica health check passed,68
+2026-01-14T13:31:09Z,search,INFO,Search query completed,161
+2026-01-14T13:39:03Z,api,WARN,Client rate limit nearing threshold,287
+2026-01-14T13:49:52Z,payments,INFO,Payment webhook processed,201
+2026-01-14T14:20:58Z,payments,INFO,Payment authorization completed,234
+2026-01-14T14:42:31Z,notifications,INFO,Push notification delivered,72
+2026-01-14T14:49:49Z,db,INFO,Connection returned to pool,98
+2026-01-14T14:53:40Z,db,INFO,Connection returned to pool,51
+2026-01-14T15:33:19Z,auth,WARN,Token verification latency elevated,241
+2026-01-14T16:08:41Z,search,INFO,Index refresh checkpoint saved,184
+2026-01-14T16:19:06Z,api,ERROR,Request handler failed,823
+2026-01-14T16:33:02Z,payments,WARN,Webhook delivery delayed,327
+2026-01-14T17:08:32Z,search,INFO,Index refresh checkpoint saved,206
+2026-01-14T17:29:26Z,notifications,INFO,Notification template rendered,74
+2026-01-14T17:33:28Z,db,INFO,Replica health check passed,97
+2026-01-14T17:55:41Z,auth,INFO,Session refreshed,103
+2026-01-14T18:05:42Z,api,INFO,HTTP request completed,154
+2026-01-14T18:15:03Z,api,INFO,HTTP request completed,131
+2026-01-14T20:28:57Z,api,WARN,Request queue utilization high,307
+2026-01-14T20:29:07Z,payments,INFO,Payment webhook processed,196
+2026-01-14T21:03:18Z,payments,INFO,Payment webhook processed,227
+2026-01-14T22:15:43Z,auth,INFO,Access token issued,119
