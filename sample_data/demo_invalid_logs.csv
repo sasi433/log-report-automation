@@ -1,0 +1,7 @@
+timestamp,service,level,message,response_ms
+2026-01-01T08:00:00Z,api,INFO,Request completed,125
+not-a-timestamp,auth,ERROR,Invalid timestamp example,350
+2026-01-01T09:00:00Z,payments,WARN,Negative latency example,-20
+2026-01-01T10:00:00Z,search,DEBUG,Unknown level example,90
+2026-01-01T11:00:00Z,,INFO,Missing service example,75
+2026-01-01T12:00:00Z,db,INFO,,40

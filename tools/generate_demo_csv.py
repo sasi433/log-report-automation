@@ -9,6 +9,7 @@ import pandas as pd
 
 SERVICES = ["api", "auth", "db", "payments", "notifications", "search"]
 LEVELS = ["INFO", "WARN", "ERROR"]
+DEMO_START_UTC = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
 INFO_MESSAGES = [
     "Request completed",
@@ -54,13 +55,12 @@ def generate_logs(
     rng = random.Random(seed)
 
     if start_utc is None:
-        # Start 'days' ago at 00:00 UTC
-        now = datetime.now(timezone.utc)
-        start_utc = (now - timedelta(days=days)).replace(hour=0, minute=0, second=0, microsecond=0)
+        # A fixed start date keeps portfolio output reproducible across runs.
+        start_utc = DEMO_START_UTC
 
     # Make daily pattern: business hours have more traffic
     # Also inject a couple "incident windows" with more errors.
-    incident_days = {rng.randrange(0, days) for _ in range(2)}
+    incident_days = set(rng.sample(range(days), k=min(2, days)))
     incident_hours = {10, 11, 12, 18}  # typical spike windows
 
     timestamps: list[datetime] = []
@@ -164,7 +164,7 @@ def main() -> int:
     df = generate_logs(rows=args.rows, days=args.days, seed=args.seed, start_utc=None)
     df.to_csv(out_path, index=False)
 
-    print(f"✅ Wrote {len(df)} rows to: {out_path.resolve()}")
+    print(f"Wrote {len(df)} rows to: {out_path.resolve()}")
     return 0
 
 

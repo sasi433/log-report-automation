@@ -204,3 +204,16 @@ def test_quality_summary_includes_stable_zero_counts():
     assert summary["Invalid timestamp"] == 0
     assert summary["Unknown level"] == 0
     assert summary["Rejected rows"] == 0
+
+
+def test_load_logs_reports_malformed_csv(tmp_path: Path):
+    path = tmp_path / "malformed.csv"
+    path.write_text(
+        "timestamp,service,level,message,response_ms\n"
+        "2025-01-01T10:00:00Z,api,INFO,ok,25\n"
+        "2025-01-01T11:00:00Z,api,ERROR,too,many,fields\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="Unable to parse CSV"):
+        load_logs(path)

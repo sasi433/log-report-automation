@@ -4,9 +4,18 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
+    name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -14,14 +23,29 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
+          cache: pip
 
-      - name: Install dependencies
+      - name: Install package and development dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          python -m pip install -e .
           python -m pip install -r requirements-dev.txt
 
-      - name: Run tests
+      - name: Lint and format check
         run: |
-          python -m pytest -q
+          python -m ruff check .
+          python -m black . --check
+
+      - name: Run tests
+        run: python -m pytest
+
+      - name: Verify installed CLI and workbook generation
+        run: |
+          log-report --help
+          python tools/generate_demo_csv.py --rows 100 --days 7 --seed 42 --output reports/ci-demo.csv
+          log-report --input reports/ci-demo.csv --output reports/ci-demo.xlsx --slow-threshold-ms 500
+          test -s reports/ci-demo.xlsx
+
+      - name: Build distribution packages
+        run: python -m build
