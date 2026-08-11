@@ -14,6 +14,22 @@ HEADER_FILL = PatternFill("solid", fgColor="1F4E79")
 HEADER_FONT = Font(bold=True, color="FFFFFF")
 
 
+def sanitize_excel_text(value: object) -> object:
+    """Prevent openpyxl from turning untrusted text into an Excel formula.
+
+    openpyxl marks strings beginning with ``=`` as formula cells. Strings
+    beginning with ``+``, ``-``, or ``@`` remain ordinary string cells and are
+    intentionally preserved.
+    """
+    if isinstance(value, str) and value.startswith("="):
+        return "'" + value
+    return value
+
+
+def _sanitize_frame(df: pd.DataFrame) -> pd.DataFrame:
+    return df.apply(lambda column: column.map(sanitize_excel_text))
+
+
 def _autofit_columns(ws, max_width: int = 60, scan_limit: int = 2000) -> None:
     for column in ws.columns:
         first_cell = column[0]
@@ -109,11 +125,11 @@ def write_excel_report(
     if validation is None:
         validation = ValidationResult(df, (), 0)
 
-    summary, per_level, per_service = build_summary_tables(df)
-    logs = build_export_logs(df)
-    daily = build_daily_summary(df)
-    quality = build_quality_summary(validation)
-    issue_details = build_issue_details(validation)
+    summary, per_level, per_service = (_sanitize_frame(table) for table in build_summary_tables(df))
+    logs = _sanitize_frame(build_export_logs(df))
+    daily = _sanitize_frame(build_daily_summary(df))
+    quality = _sanitize_frame(build_quality_summary(validation))
+    issue_details = _sanitize_frame(build_issue_details(validation))
 
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
         summary.to_excel(writer, sheet_name="summary", index=False, startrow=1)
