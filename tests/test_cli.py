@@ -83,3 +83,21 @@ def test_cli_lenient_validation_writes_quality_sheet(tmp_path, capsys):
     assert "Rejected rows: 2" in output
     assert "Sheets: summary, logs, daily_summary, data_quality" in output
     assert "data_quality" in load_workbook(output_path).sheetnames
+
+
+def test_cli_applies_custom_slow_threshold(tmp_path):
+    output_path = tmp_path / "report.xlsx"
+
+    exit_code = main(
+        [
+            "--input",
+            "sample_data/example.csv",
+            "--output",
+            str(output_path),
+            "--slow-threshold-ms",
+            "123",
+        ]
+    )
+
+    assert exit_code == EXIT_OK
+    assert load_workbook(output_path)["summary"]["B13"].value == 123

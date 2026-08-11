@@ -33,12 +33,28 @@ def test_write_excel_report_creates_expected_sheets(tmp_path: Path) -> None:
     assert ws_summary["A1"].value == "Log Report Summary"
     # these should exist somewhere near the top (robust checks)
     values = [ws_summary.cell(row=r, column=1).value for r in range(1, 15)]
-    assert "metric" in values or "Key Metrics" in values
+    assert "metric" in values
+    assert "P95 response time" in values
+    assert ws_summary["B13"].value == 500
+    assert len(ws_summary._charts) == 1
+    assert ws_summary._charts[0].dLbls.showCatName is True
+    assert ws_summary._charts[0].dLbls.showSerName is False
 
     # daily_summary: has date column
     ws_daily = wb["daily_summary"]
     daily_headers = [cell.value for cell in ws_daily[1]]
-    assert "date" in daily_headers
+    assert daily_headers[:9] == [
+        "date",
+        "total_rows",
+        "error_count",
+        "error_rate_pct",
+        "avg_response_ms",
+        "p95_response_ms",
+        "INFO",
+        "WARN",
+        "ERROR",
+    ]
+    assert len(ws_daily._charts) == 1
 
     ws_quality = wb["data_quality"]
     assert ws_quality["A1"].value == "Data Quality"

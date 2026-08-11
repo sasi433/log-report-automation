@@ -15,6 +15,13 @@ EXIT_INPUT_MISSING = 2
 EXIT_OUTPUT_ERROR = 3
 
 
+def non_negative_number(value: str) -> float:
+    number = float(value)
+    if number < 0:
+        raise argparse.ArgumentTypeError("must be zero or greater")
+    return number
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """Parse command-line arguments for ``log-report``."""
     parser = argparse.ArgumentParser(
@@ -30,6 +37,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         choices=("strict", "lenient"),
         default="strict",
         help="Validation behavior for invalid rows (default: strict)",
+    )
+    parser.add_argument(
+        "--slow-threshold-ms",
+        type=non_negative_number,
+        default=500.0,
+        help="Response-time threshold used to count slow requests (default: 500)",
     )
     return parser.parse_args(argv)
 
@@ -65,6 +78,7 @@ def main(argv: list[str] | None = None) -> int:
     print("Log Report Automation")
     print(f"Input : {input_path.resolve()}")
     print(f"Output: {output_path.resolve()}")
+    print(f"Slow request threshold: {args.slow_threshold_ms:g} ms")
 
     if args.service or args.level:
         print("\n--- Active filters ---")
@@ -93,7 +107,12 @@ def main(argv: list[str] | None = None) -> int:
 
     print_stats(df)
     try:
-        write_excel_report(df, output_path, validation)
+        write_excel_report(
+            df,
+            output_path,
+            validation,
+            slow_threshold_ms=args.slow_threshold_ms,
+        )
     except Exception as exc:
         print(f"\nFailed to write Excel report: {exc}")
         return EXIT_OUTPUT_ERROR
